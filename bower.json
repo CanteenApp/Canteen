@@ -1,0 +1,21 @@
+{
+  "name": "canteen",
+  "description": "Don’t get lost planing your next outdoor adventure",
+  "main": "public/index.html",
+  "authors": [
+    "Todd Bontrager",
+    "Rob Bruhn",
+    "Jak Buttarazzi",
+    "Ryan Hasse"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/CanteenApp/Canteen",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ]
+}
