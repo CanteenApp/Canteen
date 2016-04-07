@@ -26,5 +26,9 @@
     "bower": "^1.7.9",
     "express": "^4.13.4",
     "mongoose": "^4.4.11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
