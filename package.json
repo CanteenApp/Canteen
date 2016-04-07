@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Don’t get lost planing your next outdoor adventure",
   "main": "index.js",
+  "engines": {
+    "node": "4.4.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -16,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/CanteenApp/Canteen/issues"
   },
-  "homepage": "https://github.com/CanteenApp/Canteen#readme"
+  "homepage": "https://github.com/CanteenApp/Canteen#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
