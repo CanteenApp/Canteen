@@ -1,0 +1,20 @@
+{
+  "name": "canteen",
+  "version": "0.0.0",
+  "description": "Don’t get lost planing your next outdoor adventure",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakRazzi/Canteen.git"
+  },
+  "author": "Todd Bontrager, Rob Bruhn, Jak Buttarazzi, Ryan Hasse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakRazzi/Canteen/issues"
+  },
+  "homepage": "https://github.com/JakRazzi/Canteen#readme"
+}
