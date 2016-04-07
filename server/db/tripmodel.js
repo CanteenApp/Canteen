@@ -9,7 +9,10 @@ var tripSchema = new Schema({
     default:[]
   },
   location: String,
-  dates: String,
+  dates: {
+    start: Date,
+    end: Date,
+    },
   lists:{
     type:Array,
     default:[]
