@@ -1,5 +1,5 @@
 // tripsController path may change
-var tripsController = require('../trips/tripsController.js');
+// var tripsController = require('../trips/tripsController.js');
 
 // trips methods may change
 module.exports = function (app, express) {
