@@ -24,7 +24,7 @@ module.exports = {
 
   // http://mongoosejs.com/docs/api.html
   // http://stackoverflow.com/questions/15123182/mongoose-findoneandupdate-not-working
-  getTrip: function (req, res) {
+  updateTrip: function (req, res) {
     var query = { _id: req.params.id };
     var options = { new: true };
     Trip.findOneAndUpdate(query, req.body, options, function (err, trip) {
@@ -33,7 +33,15 @@ module.exports = {
       }
     });
   },
-};
 
-    // Trip.findById(id, function()
-    // Kitten.find({ name: /^Fluff/ }, callback);
+  getTrip: function (req, res) {
+    var query = Trip.where({ _id: req.params.id });
+    query.findOne(function (err, trip) {
+      if (err) {
+        return handleError(err);
+      } else {
+        res.json(trip);
+      }
+    });
+  },
+};

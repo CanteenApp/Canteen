@@ -29,7 +29,7 @@ describe('Trips', function () {
   describe('updateTrip()', function () {
     it('should be a function', function () {
       expect(Trips.updateTrip).to.exist;
-      expext(Trips.updateTrip).to.be.a('function');
+      expect(Trips.updateTrip).to.be.a('function');
     });
   });
 });
