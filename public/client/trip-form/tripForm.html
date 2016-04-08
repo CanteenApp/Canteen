@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Plan your trip!</h1>
+
+    <br>
+
+    <form ng-submit="createTrip()">
+      <div class="form-group">
+        <label for="trip-name">Trip Name:</label>
+        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName"></input>
+
+        <br>
+
+        <label for="trip-location">Trip Destination:</label>
+        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location"></input>
+
+        <br>
+
+        <label for="trip-date">Trip Dates:</label>
+        <div class="input-group" id="trip-date">
+          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start"></input>
+          <span class="input-group-addon"> - </span>
+          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end"></input>
+        </div>
+
+        <br>
+
+        <label for="trip-invite">Trip Members:</label>
+        <div class="input-group">
+          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
+          </span>
+        </div>
+
+        <br>
+
+        <button class="btn btn-primary" type="button"> Create Trip! </button>
+    </form>
+  </div>
+</div>
