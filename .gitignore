@@ -7,3 +7,5 @@ dist/
 
 .floo
 .flooignore
+
+.DS_Store
