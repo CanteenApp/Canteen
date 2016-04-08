@@ -1,6 +1,4 @@
-angular.module('canteen.formFactory', [
-  '$http'
-])
+angular.module('canteen.forms', [])
 
 .factory('formFactory', ['$http', function($http) {
   function submitTrip(tripData) {

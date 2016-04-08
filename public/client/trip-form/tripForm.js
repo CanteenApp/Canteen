@@ -1,8 +1,8 @@
 angular.module('canteen.tripForm', [
- 'canteen.formFactory'
+ 'canteen.forms'
 ])
 
-.controller('tripFormCtrl', ['$scope', 'formFactory' function($scope, formFactory) {
+.controller('tripFormCtrl', ['$scope', 'formFactory', function($scope, formFactory) {
     $scope.tripForm = {
     tripName: '',
     members: [],
