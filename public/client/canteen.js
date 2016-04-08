@@ -1,7 +1,7 @@
 angular.module('canteen',[
   // 'canteen.tripForm',
   'ui.bootstrap',
-  'ui-router'
+  'ui.router'
 ]);
 // .config(function($stateProvider, $urlRouterProvider) {
 
