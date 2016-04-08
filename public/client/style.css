@@ -1,4 +1,5 @@
 .banner {
-  background-image: url("");
+  background-image: url("img/blackrock_mountain_peak_panoramic.jpg");
   background-size: cover;
+  height: 200px;
 }

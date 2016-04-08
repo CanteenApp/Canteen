@@ -1,18 +1,27 @@
 <div class="container"ng-controller="landingPage">
+    <div class="row">
+      <div class="banner col-md-12"></div>
+    <div>
   <div class="row">
     <div class="col-md-12">
       <h1>Canteen App</h1>
-      <form>
+      <h4>Don’t get lost planing your next outdoor adventure</h4>
+      <form ng-submit="">
         <fieldset class="form-group">
-          <label for="username">Example label</label>
-          <input type="text" class="form-control" id="username" placeholder="Example input">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter your username" ng-model="data.username">
         </fieldset>
         <fieldset class="form-group">
-          <label for="formGroupExampleInput2">Another label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password" placeholder="Enter your password" ng-model="data.username">
+            <a href="#/tripForm">
+              <button class="btn btn-default">Sign-Up</button>
+            </a>
+            <a href="#/tripForm">
+              <button class="btn btn-default">Plan A Trip</button>
+            </a>
         </fieldset>
       </form>
-
     </div>
   </div>
 </div>
