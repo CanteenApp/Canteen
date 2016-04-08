@@ -1,9 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var db = require('./server/db/config');
-var middleware = require('./server/utils/middleware');
+var db = require('./server/db/config.js');
 
 var app = express();
 
+require('./server/utils/middleware.js')(app, express);
 
 module.exports = app;
