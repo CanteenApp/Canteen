@@ -18,13 +18,14 @@ describe('Trip Routes', function () {
     });
   });
 
+  // test createTrip
   describe('New trip should create a database entry', function (done) {
+    // expect a POST request with valid trip ID to return status code 200
+    request(app)
+      .post('/api/trips')
 
   });
 
-  // test createTrip
-  // expect a POST request with invalid ID api/trips/:id to return a error
-  // expect a POST request with valid trip ID to return status code 200
 
 
   // test getAll trips
