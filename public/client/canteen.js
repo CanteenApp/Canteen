@@ -6,7 +6,7 @@ angular.module('canteen', [
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
   $stateProvider
-        .state('landingPage', {
+    .state('landingPage', {
       url: "/",
       templateUrl: "client/landingPage/landingPage.html",
       controller : 'landingPage'
