@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 var db = require('../../server/db/config');
 var Trips = require('../../server/trips/tripsController');
 var Trip = require('../../server/trips/tripModel');
+var clearDB = function (done) {
+  mongoose.connection.collections.trips.remove(done);
+};
 
 describe('Invalid Routes', function () {
   // test that proper error code is recieved for invalid url
@@ -36,7 +39,9 @@ describe('API Routes', function () {
   });
 
   describe('/api/trips', function () {
-
+    // test getAll trips
+    // expect a GET request to api/trips to return all trips
+    // first create a trip or two
     describe('GET', function () {
       it('responds with a 200 (OK)', function (done) {
         request(app)
@@ -59,9 +64,8 @@ describe('API Routes', function () {
       };
 
       var stringTrip = JSON.stringify(newTrip);
-      console.log('specs', stringTrip);
 
-      it('Responds with 201 (CREATED)', function (done) {
+      it('Sould respond with 201 (CREATED) and return the tripname', function (done) {
         request(app)
         .post('/api/trips')
         .send(newTrip)
@@ -72,18 +76,57 @@ describe('API Routes', function () {
         });
       });
     });
+
+    // test updateTrip
+    describe('PUT', function () {
+      var tripId;
+      beforeEach(function (done) {
+        clearDB(function () {
+          var newTrip = {
+            tripName: 'Testing',
+            members: ['testUser'],
+            location: 'San Francisco',
+            date: {
+              start: new Date(),
+              end: new Date(),
+            },
+          };
+          Trips.createTrip(newTrip, function (err, data) {
+            if (err) {
+              console.log(err);
+            } else {
+              tripId = data._id;
+              console.log('TripID:', tripId);
+            }
+          });
+        });
+
+        done();
+      });
+
+      // expect a PUT request with invalid ID api/trips/:id to return a error
+      // expect a PUT request with valid trip ID to return status code 201
+      // and we expect the object
+
+      it('Responds with 200 (OK)', function (done) {
+        var tripUpdate = {
+          tripName: 'Updated',
+        };
+
+        request(app)
+        .put('/api/trips/' + tripId)
+        .send(tripUpdate)
+        .expect(200)
+        .end(function (err, res) {
+          console.log(res.body);
+          expect(res.body.tripName).to.equal('Updated');
+          done();
+        });
+      });
+    });
   });
-
-  // test getAll trips
-  // expect a GET request to api/trips to return all trips
-  // first create a trip or two
-
-  // test updateTrip
-  // expect a POST request with invalid ID api/trips/:id to return a error
-  // expect a POST request with valid trip ID to return status code 200
-  // and we expect the object
+});
 
   // test getTrip
   // expect a GET request with invalid ID api/trips/:id to return a error
   // with valid ID, expect trip to be returned
-});

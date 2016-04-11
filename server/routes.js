@@ -14,4 +14,14 @@ module.exports = function (app, express) {
       }
     });
   });
+
+  app.put('/api/trips/:_id', function (req, res) {
+    tripsController.updateTrip(req, function (err, data) {
+      if (err) {
+        res.handleError(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
+  });
 };

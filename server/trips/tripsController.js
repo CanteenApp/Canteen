@@ -13,7 +13,6 @@ module.exports = {
   },
 
   createTrip: function (req, callback) {
-    // console.log('createTrip', req.body);
     Trip.create(req.body, function (err, trip) {
       if (err) {
         callback(err);
@@ -25,12 +24,15 @@ module.exports = {
 
   // http://mongoosejs.com/docs/api.html
   // http://stackoverflow.com/questions/15123182/mongoose-findoneandupdate-not-working
-  updateTrip: function (req, res) {
+  updateTrip: function (req, callback) {
+    console.log('params', req.params);
     var query = { _id: req.params.id };
-    var options = { new: true };
-    Trip.findOneAndUpdate(query, req.body, options, function (err, trip) {
+    // var options = { new: true };
+    Trip.update(query, req.body, function (err, trip) {
       if (err) {
-        console.log('got an error');
+        callback(err);
+      } else {
+        callback(null, trip);
       }
     });
   },
