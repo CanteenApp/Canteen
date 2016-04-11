@@ -1,27 +1,26 @@
-<div class="container"ng-controller="landingPage">
-    <div class="row">
-      <div class="banner col-md-12"></div>
-    <div>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Canteen App</h1>
-      <h4>Don’t get lost planing your next outdoor adventure</h4>
-      <form ng-submit="">
-        <fieldset class="form-group">
-          <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" placeholder="Enter your username" ng-model="data.username">
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="password">Password</label>
-          <input type="text" class="form-control" id="password" placeholder="Enter your password" ng-model="data.username">
-            <a href="#/tripForm">
-              <button class="btn btn-default">Sign-Up</button>
-            </a>
-            <a href="#/tripForm">
-              <button class="btn btn-default">Plan A Trip</button>
-            </a>
-        </fieldset>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-md-8 col-offset-2">
+    <h1>Canteen App</h1>
+    <h4>Don’t get lost planing your next outdoor adventure</h4>
   </div>
 </div>
+
+<form class="row" ng-submit="">
+  <div class="col-md-8 col-offset-2"></div>
+    <fieldset class="form-group">
+      <label for="username">Username</label>
+      <input class="form-control" id="username" type="text" placeholder="Enter your username" ng-model="data.username">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" id="password" type="text" placeholder="Enter your password" ng-model="data.username">
+        <a ui-sref="signup">
+          <button class="btn btn-default">Sign-Up</button>
+        </a>
+        <a ui-sref="tripForm">
+          <button class="btn btn-default">Plan A Trip</button>
+        </a>
+    </fieldset>
+  </div>
+</form>
