@@ -1,26 +1,38 @@
 <div class="row">
-  <div class="col-md-8 col-offset-2">
+  <div class="banner col-md-8 col-md-offset-2">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
     <h1>Canteen App</h1>
     <h4>Don’t get lost planing your next outdoor adventure</h4>
   </div>
 </div>
 
-<form class="row" ng-submit="">
-  <div class="col-md-8 col-offset-2"></div>
-    <fieldset class="form-group">
+<br>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <form class="form-group" ng-submit="">
       <label for="username">Username</label>
       <input class="form-control" id="username" type="text" placeholder="Enter your username" ng-model="data.username">
-    </fieldset>
 
-    <fieldset class="form-group">
+      <br>
+
       <label for="password">Password</label>
       <input class="form-control" id="password" type="text" placeholder="Enter your password" ng-model="data.username">
-        <a ui-sref="signup">
-          <button class="btn btn-default">Sign-Up</button>
-        </a>
-        <a ui-sref="tripForm">
-          <button class="btn btn-default">Plan A Trip</button>
-        </a>
-    </fieldset>
+    </form>
   </div>
-</form>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <a ui-sref="signup">
+      <button class="btn btn-default">Sign-Up</button>
+    </a>
+    <a ui-sref="tripForm">
+      <button class="btn btn-default">Plan A Trip</button>
+    </a>
+  </div>
+</div>
