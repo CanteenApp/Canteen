@@ -1,47 +1,31 @@
 var Trip = require('./tripModel');
-var mongoose = require('mongoose');
 
 module.exports = {
-  getAllTrips: function (req, res, next) {
+  getAllTrips: function (next) {
     Trip.find()
-    .then(function (trips) {
-      res.json(trips);
-    })
-    .catch(function (err) {
-      next(err);
+    .exec(function (err, trips) {
+      next(err, trips);
     });
   },
 
-  createTrip: function (req, callback) {
+  createTrip: function (req, next) {
     Trip.create(req.body, function (err, trip) {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, trip);
-      }
+      next(err, trip);
     });
   },
 
-  // http://mongoosejs.com/docs/api.html
-  // http://stackoverflow.com/questions/15123182/mongoose-findoneandupdate-not-working
-  updateTrip: function (req, callback) {
+  updateTrip: function (req, next) {
     var options = { new: true };
-    Trip.findByIdAndUpdate(req.params._id, req.body, options, function (err, trip) {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, trip);
-      }
+    Trip.findByIdAndUpdate(req.params._id, req.body, options)
+    .exec(function (err, trip) {
+      next(err, trip);
     });
   },
 
-  getTrip: function (req, callback) {
-    Trip.findById(req.params._id, function (err, trip) {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null, trip);
-      }
+  getTrip: function (req, next) {
+    Trip.findById(req.params._id)
+    .exec(function (err, trip) {
+      next(err, trip);
     });
   },
 };

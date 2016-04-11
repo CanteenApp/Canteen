@@ -22,8 +22,6 @@ describe('Invalid Routes', function () {
   });
 });
 
-// chai.use(require('chai-things'));
-
 var testTrips =
   {
     tripName: 'Testing1',
@@ -145,6 +143,17 @@ describe('API Routes', function () {
           expect(res.body.tripName).to.equal('Updated');
           done();
         });
+      });
+
+      it('Responds with 400 (BAD REQUEST)', function (done) {
+        var tripUpdate = {
+          tripName: 'Updated',
+        };
+
+        request(app)
+        .put('/api/trips/5')
+        .send(tripUpdate)
+        .expect(400, done);
       });
     });
   });
