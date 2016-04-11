@@ -25,6 +25,8 @@
     "body-parser": "^1.15.0",
     "bower": "^1.7.9",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "grant-express": "^3.6.0",
     "mongoose": "^4.4.11"
   },
   "devDependencies": {
