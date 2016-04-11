@@ -22,7 +22,7 @@ module.exports = {
   },
 
   getList: function (id, next) {
-    List.findOne(id)
+    List.findOne({list_id: id})
       .then(function (list) {
         next(list);
       })
