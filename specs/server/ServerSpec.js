@@ -38,15 +38,46 @@ describe('API Routes', function () {
     Trip.create(testTrips);
   });
 
+  var newTrip = {
+    tripName: 'Testing',
+    members: ['testUser'],
+    location: 'San Francisco',
+    date: {
+      start: new Date(),
+      end: new Date(),
+    },
+  };
+
   describe('/api/trips', function () {
     // test getAll trips
-    // expect a GET request to api/trips to return all trips
-    // first create a trip or two
     describe('GET', function () {
+      // expect a GET request to api/trips to return all trips
       it('responds with a 200 (OK)', function (done) {
         request(app)
           .get('/api/trips')
           .expect(200, done);
+      });
+
+      before(function (done) {
+        request(app)
+        .post('/api/trips')
+        .send(newTrip)
+        .end(function (err, res) {
+          tripId = res.body._id;
+          done();
+        });
+      });
+
+      // test getTrip
+      it('responds with trip for given ID', function (done) {
+        // expect a GET request with valid ID, expect trip to be returned
+        request(app)
+        .get('/api/trips/' + tripId)
+        .expect(200)
+        .end(function (err, res) {
+          expect(res.body.tripName).to.equal('Testing');
+          done();
+        });
       });
     });
 
@@ -89,16 +120,6 @@ describe('API Routes', function () {
 
       // expect a PUT request with invalid ID api/trips/:id to return a error
 
-      var newTrip = {
-        tripName: 'Testing',
-        members: ['testUser'],
-        location: 'San Francisco',
-        date: {
-          start: new Date(),
-          end: new Date(),
-        },
-      };
-
       before(function (done) {
         request(app)
         .post('/api/trips')
@@ -128,7 +149,3 @@ describe('API Routes', function () {
     });
   });
 });
-
-  // test getTrip
-  // expect a GET request with invalid ID api/trips/:id to return a error
-  // with valid ID, expect trip to be returned

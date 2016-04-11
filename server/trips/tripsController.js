@@ -35,13 +35,12 @@ module.exports = {
     });
   },
 
-  getTrip: function (req, res) {
-    var query = Trip.where({ _id: req.params.id });
-    query.findOne(function (err, trip) {
+  getTrip: function (req, callback) {
+    Trip.findById(req.params._id, function (err, trip) {
       if (err) {
-        return handleError(err);
+        callback(err);
       } else {
-        res.json(trip);
+        callback(null, trip);
       }
     });
   },
