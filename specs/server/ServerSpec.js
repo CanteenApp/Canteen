@@ -29,24 +29,9 @@ var testTrips =
     date: {},
     lists: [],
   };
-  // {
-  //   tripName: 'Testing2',
-  //   members: [],
-  //   location: 'San Antonio',
-  //   date: {},
-  //   lists: [],
-  // },
-  // {
-  //   tripName: 'Testing3',
-  //   members: [],
-  //   location: 'San Diego',
-  //   date: {},
-  //   lists: [],
-  // }
 
 describe('API Routes', function () {
   beforeEach(function () {
-    var tripsCopy = JSON.stringify(testTrips);
     Trip.create(testTrips);
   });
 
@@ -61,23 +46,32 @@ describe('API Routes', function () {
     });
 
     // test createTrip
-    // describe('POST', function () {
-    //   // expect a POST request with valid trip ID to return status code 200
-    //   var newTrip = {
-    //     tripName: 'Testing',
-    //     members: [],
-    //     location: 'San Francisco',
-    //     date: {},
-    //     lists: [],
-    //   };
-    //
-    //   it('Responds with 201 (CREATED)', function (done) {
-    //     request(app)
-    //     .post('/api/trips')
-    //     .send(newTrip)
-    //     .expect(201, done);
-    //   });
-    // });
+    describe('POST', function () {
+      // expect a POST request with valid trip ID to return status code 200
+      var newTrip = {
+        tripName: 'Testing',
+        members: ['testUser'],
+        location: 'San Francisco',
+        date: {
+          start: new Date(),
+          end: new Date(),
+        },
+      };
+
+      var stringTrip = JSON.stringify(newTrip);
+      console.log('specs', stringTrip);
+
+      it('Responds with 201 (CREATED)', function (done) {
+        request(app)
+        .post('/api/trips')
+        .send(newTrip)
+        .expect(201)
+        .end(function (err, res) {
+          expect(res.body.tripName).to.equal('Testing');
+          done();
+        });
+      });
+    });
   });
 
   // test getAll trips

@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 
 module.exports = {
   getAllTrips: function (req, res, next) {
-    console.log('getAllTrips');
     Trip.find()
     .then(function (trips) {
       res.json(trips);
@@ -13,19 +12,15 @@ module.exports = {
     });
   },
 
-  createTrip: function (req, res) {
-    console.log('createTrip');
-    console.log(req);
-    console.log('req.body: '+req.body)
-    Trip.create(req.body), function (err, trip) {
+  createTrip: function (req, callback) {
+    // console.log('createTrip', req.body);
+    Trip.create(req.body, function (err, trip) {
       if (err) {
-        console.log(err);
-        return handleError(err);
+        callback(err);
       } else {
-        console.log('success');
-        res.sendStatus(201);
+        callback(null, trip);
       }
-    };
+    });
   },
 
   // http://mongoosejs.com/docs/api.html

@@ -5,5 +5,13 @@ var tripsController = require('./trips/tripsController');
 module.exports = function (app, express) {
   app.get('/api/trips', tripsController.getAllTrips);
   app.get('/api/trips/:tripId', tripsController.getTrip);
-  app.post('/api/trips', tripsController.createTrip);
+  app.post('/api/trips', function (req, res) {
+    tripsController.createTrip(req, function (err, data) {
+      if (err) {
+        res.handleError(err);
+      } else {
+        res.status(201).send(data);
+      }
+    });
+  });
 };
