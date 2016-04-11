@@ -25,10 +25,8 @@ module.exports = {
   // http://mongoosejs.com/docs/api.html
   // http://stackoverflow.com/questions/15123182/mongoose-findoneandupdate-not-working
   updateTrip: function (req, callback) {
-    console.log('params', req.params);
-    var query = { _id: req.params.id };
-    // var options = { new: true };
-    Trip.update(query, req.body, function (err, trip) {
+    var options = { new: true };
+    Trip.findByIdAndUpdate(req.params._id, req.body, options, function (err, trip) {
       if (err) {
         callback(err);
       } else {

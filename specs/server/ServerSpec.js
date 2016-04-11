@@ -80,35 +80,38 @@ describe('API Routes', function () {
     // test updateTrip
     describe('PUT', function () {
       var tripId;
-      beforeEach(function (done) {
-        clearDB(function () {
-          var newTrip = {
-            tripName: 'Testing',
-            members: ['testUser'],
-            location: 'San Francisco',
-            date: {
-              start: new Date(),
-              end: new Date(),
-            },
-          };
-          Trips.createTrip(newTrip, function (err, data) {
-            if (err) {
-              console.log(err);
-            } else {
-              tripId = data._id;
-              console.log('TripID:', tripId);
-            }
-          });
-        });
 
-        done();
-      });
+      // TODO: Clear DB before running specs
+      // beforeEach(function (done) {
+      //   clearDB(function () {});
+      //   done();
+      // });
 
       // expect a PUT request with invalid ID api/trips/:id to return a error
-      // expect a PUT request with valid trip ID to return status code 201
-      // and we expect the object
 
+      var newTrip = {
+        tripName: 'Testing',
+        members: ['testUser'],
+        location: 'San Francisco',
+        date: {
+          start: new Date(),
+          end: new Date(),
+        },
+      };
+
+      before(function (done) {
+        request(app)
+        .post('/api/trips')
+        .send(newTrip)
+        .end(function (err, res) {
+          tripId = res.body._id;
+          done();
+        });
+      });
+
+      // expect a PUT request with valid trip ID to return status code 200 and the updated object
       it('Responds with 200 (OK)', function (done) {
+
         var tripUpdate = {
           tripName: 'Updated',
         };
@@ -118,7 +121,6 @@ describe('API Routes', function () {
         .send(tripUpdate)
         .expect(200)
         .end(function (err, res) {
-          console.log(res.body);
           expect(res.body.tripName).to.equal('Updated');
           done();
         });
