@@ -1,8 +1,9 @@
-var Trip = require('./tripsController');
+var Trip = require('./tripModel');
 var mongoose = require('mongoose');
 
 module.exports = {
   getAllTrips: function (req, res, next) {
+    console.log('getAllTrips');
     Trip.find()
     .then(function (trips) {
       res.json(trips);
@@ -13,11 +14,16 @@ module.exports = {
   },
 
   createTrip: function (req, res) {
+    console.log('createTrip');
+    console.log(req);
+    console.log('req.body: '+req.body)
     Trip.create(req.body), function (err, trip) {
       if (err) {
+        console.log(err);
         return handleError(err);
       } else {
-        res.sendStatus(200);
+        console.log('success');
+        res.sendStatus(201);
       }
     };
   },

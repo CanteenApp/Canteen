@@ -1,32 +1,84 @@
 var request = require('supertest');
 var express = require('express');
 var expect = require('chai').expect;
-var app = require('../../server.js');
+var chai = require('chai');
+var app = require('../../server');
+var mongoose = require('mongoose');
 
 var db = require('../../server/db/config');
-var Trip = require('../../server/trips/tripsController');
+var Trips = require('../../server/trips/tripsController');
+var Trip = require('../../server/trips/tripModel');
 
-describe('Trip Routes', function () {
-
-  describe('Invalid Routes', function () {
-    // test that proper error code is recieved for invalid url
-    it('Should return error', function (done) {
-      request(app)
-        .get('/abc')
-        .expect(404)
-        .end(done);
-    });
-  });
-
-  // test createTrip
-  describe('New trip should create a database entry', function (done) {
-    // expect a POST request with valid trip ID to return status code 200
+describe('Invalid Routes', function () {
+  // test that proper error code is recieved for invalid url
+  it('Should return error', function (done) {
     request(app)
-      .post('/api/trips')
+    .get('/abc')
+    .expect(404)
+    .end(done);
+  });
+});
 
+// chai.use(require('chai-things'));
+
+var testTrips =
+  {
+    tripName: 'Testing1',
+    members: [],
+    location: 'San Francisco',
+    date: {},
+    lists: [],
+  };
+  // {
+  //   tripName: 'Testing2',
+  //   members: [],
+  //   location: 'San Antonio',
+  //   date: {},
+  //   lists: [],
+  // },
+  // {
+  //   tripName: 'Testing3',
+  //   members: [],
+  //   location: 'San Diego',
+  //   date: {},
+  //   lists: [],
+  // }
+
+describe('API Routes', function () {
+  beforeEach(function () {
+    var tripsCopy = JSON.stringify(testTrips);
+    Trip.create(testTrips);
   });
 
+  describe('/api/trips', function () {
 
+    describe('GET', function () {
+      it('responds with a 200 (OK)', function (done) {
+        request(app)
+          .get('/api/trips')
+          .expect(200, done);
+      });
+    });
+
+    // test createTrip
+    // describe('POST', function () {
+    //   // expect a POST request with valid trip ID to return status code 200
+    //   var newTrip = {
+    //     tripName: 'Testing',
+    //     members: [],
+    //     location: 'San Francisco',
+    //     date: {},
+    //     lists: [],
+    //   };
+    //
+    //   it('Responds with 201 (CREATED)', function (done) {
+    //     request(app)
+    //     .post('/api/trips')
+    //     .send(newTrip)
+    //     .expect(201, done);
+    //   });
+    // });
+  });
 
   // test getAll trips
   // expect a GET request to api/trips to return all trips
