@@ -32,7 +32,7 @@ module.exports = {
   },
 
   updateList: function (id, updates, next) {
-    List.update({tripId: id}, updates)
+    List.update({list_id: id}, updates)
       .then(function (list) {
         next(list);
       })
