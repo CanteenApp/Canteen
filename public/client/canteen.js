@@ -4,21 +4,21 @@ angular.module('canteen', [
   'ui.router'
 ])
 .config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/landing-page");
   $stateProvider
     .state('landingPage', {
-      url: "/",
+      url: "/landing-page",
       templateUrl: "client/landingPage/landingPage.html",
       controller : 'landingPage'
+    })
+    .state('tripForm', {
+      url: "/trip-form",
+      templateUrl: "client/trip-form/tripForm.html",
+      controller : 'tripForm'
     });
-    // .state('tripForm', {
-    //   url: "/tripForm",
-    //   templateUrl: "public/client/trip-form/tripForm.html",
-    //   controller : tripForm
-    // });
     // .state('tripForm.lists', {
     //   url: "/lists",
-    //   templateUrl: "public/client/trip-form/tripFormLists.html",
+    //   templateUrl: "client/trip-form/tripFormLists.html",
     //   controller: TBD
     // });
 });
