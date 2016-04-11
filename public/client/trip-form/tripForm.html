@@ -4,39 +4,37 @@
 
     <br>
 
-    <form ng-submit="createTrip()">
-      <fieldset> class="form-group">
-        <label for="trip-name">Trip Name:</label>
-        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName"></input>
+    <form class="form-group" ng-submit="createTrip()">
+      <label for="trip-name">Trip Name:</label>
+      <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName"></input>
 
-        <br>
+      <br>
 
-        <label for="trip-location">Trip Destination:</label>
-        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location"></input>
+      <label for="trip-location">Trip Destination:</label>
+      <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location"></input>
 
-        <br>
+      <br>
 
-        <label for="trip-date">Trip Dates:</label>
-        <div class="input-group" id="trip-date">
-          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start"></input>
-          <span class="input-group-addon"> - </span>
-          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end"></input>
-        </div>
+      <label for="trip-date">Trip Dates:</label>
+      <div class="input-group" id="trip-date">
+        <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start"></input>
+        <span class="input-group-addon"> - </span>
+        <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end"></input>
+      </div>
 
-        <br>
+      <br>
 
-        <label for="trip-invite">Trip Members:</label>
-        <div class="input-group">
-          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
-          </span>
-        </div>
+      <label for="trip-invite">Trip Members:</label>
+      <div class="input-group">
+        <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
+        </span>
+      </div>
 
-        <br>
+      <br>
 
-        <button class="btn btn-primary" type="submit"> Create Trip! </button>
-      </fieldset>
+      <button class="btn btn-primary" type="submit"> Create Trip! </button>
     </form>
   </div>
 </div>
