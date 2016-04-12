@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/CanteenApp/Canteen.git"
   },
-  "author": "Todd Bontrager, Rob Bruhn, Jak Buttarazzi, Ryan Hasse",
+  "author": "Todd Bontrager, Rob Bruhn, Jak Buttarazzi, Ryan Haase",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CanteenApp/Canteen/issues"
@@ -26,5 +26,10 @@
     "bower": "^1.7.9",
     "express": "^4.13.4",
     "mongoose": "^4.4.11"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
   }
 }

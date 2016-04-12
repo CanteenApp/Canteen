@@ -1,24 +1,20 @@
 var mongoose = require('mongoose');
-​
-var Schema = mongoose.Schema;
-​
-var tripSchema = new Schema({
+
+var tripSchema = new mongoose.Schema({
   tripName: String,
   members: {
     type: Array,
-    default:[]
+    default:[],
   },
   location: String,
   dates: {
     start: Date,
     end: Date,
-    },
+  },
   lists:{
     type:Array,
-    default:[]
+    default:[],
   },
 });
-​
-var Trip = mongoose.model('Trip', tripSchema);
-​
-module.exports = Trip;
+
+module.exports = mongoose.model('Trip', tripSchema);
