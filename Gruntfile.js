@@ -109,4 +109,18 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
+
+  // Launch local server, database, and watch for changes on client .js files
+  grunt.registerTask('server-dev', function (target) {
+    grunt.task.run(['shell:mongo']);
+
+    var nodemon = grunt.util.spawn({
+      cmd: 'grunt',
+      grunt: true,
+      args: 'nodemon',
+    });
+    nodemon.stdout.pipe(process.stdout);
+    nodemon.stderr.pipe(process.stderr);
+    grunt.task.run(['watch']);
+  });
 };
