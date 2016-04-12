@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
-var taskSchema = new Schema({
+var taskSchema = new mongoose.Schema({
   listId: String,
   taskName: String,
   statusCode: {
@@ -20,6 +18,4 @@ var taskSchema = new Schema({
   }
 });
 
-var Task = mongoose.model('Task', taskSchema);
-
-module.exports = Task;
+module.exports = mongoose.model('Task', taskSchema);

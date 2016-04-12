@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
-var listSchema = new Schema({
+var listSchema = new mongoose.Schema({
   tripId: String,
   listName: String,
   tasks:{
@@ -11,6 +9,4 @@ var listSchema = new Schema({
   }
 });
 
-var List = mongoose.model('List', listSchema);
-
-module.exports = List;
+module.exports = mongoose.model('List', listSchema);
