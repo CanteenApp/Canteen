@@ -12,7 +12,8 @@ var taskSchema = new Schema({
   assignedTo:{
     type:Array,
     default:[]
-  }, 
+  },
+  description: String, 
   bullets:{
     type:Array,
     default:[]

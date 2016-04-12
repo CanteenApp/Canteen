@@ -1,43 +1,32 @@
-var List = require('./ListController');
+var Task = require('./taskModel.js');
 var mongoose = require('mongoose');
 
 module.exports = {
   getAllTasks: function (id, next) {
-    List.find({listId: id})
-      .then(function (tasks) {next(tasks);
-      })
-      .catch(function (err) {
-        next(err);
+    Task.find({listId: id})
+      .exec(function (err, tasks) {
+        next(err, tasks);
       });
   },
 
   createTask: function (newTask, next) {
-    List.create(newTask)
-      .then(function (createdTask) {
-        next(createdTask);
-      })
-      .catch(function (err) {
-        next(err);
-      });
+    Task.create(newTask)
+      .exec(function (err, task) {
+        next(err, task);
+    });
   },
 
   getTask: function (id, next) {
-    List.findOne({task_id: id})
-      .then(function (task) {
-        next(task);
-      })
-      .catch(function (err) {
-        next(err);
+    Task.findOne({task_id: id})
+      .exec(function (err, task) {
+        next(err, task);
       });
   },
 
   updateTask: function (id, updates, next) {
-    List.update({task_id: id}, updates)
-      .then(function (result) {
-        next(result);
-      })
-      .catch(function (err) {
-        next(err);
+    Task.update({task_id: id}, {$set: updates})
+      .exec(function (err, task) {
+        next(err, task);
       });
   }
 };
