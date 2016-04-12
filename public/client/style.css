@@ -7,8 +7,29 @@ body {
   }
 }
 
-.banner {
-  background-image: url("img/Zion.jpg");
+.landing {
+  background-image: url("img/blackrock-mountain.jpg");
   background-size: cover;
-  height: 350px;
+}
+
+.google-signin {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: auto;
+  background-image: url("img/buttons/google-signin/btn_google_signin_light_normal_web.png");
+}
+.google-signin:hover {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: auto;
+  background-image: url("img/buttons/google-signin/btn_google_signin_light_focus_web.png");
+}
+.google-signin:active {
+  display: block;
+  width: 191px;
+  height: 46px;
+  margin: auto;
+  background-image: url("img/buttons/google-signin/btn_google_signin_light_pressed_web.png");
 }
