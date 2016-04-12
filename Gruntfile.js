@@ -17,6 +17,27 @@ module.exports = function (grunt) {
         './specs/**/*.js',
       ],
     },
+
+    concat: {
+      options: {
+        seperator: ';',
+      },
+      dist: {
+        src: ['./public/client/**/*.js'],
+        dest: './public/dist/<%= pkg.name %>.js',
+      },
+    },
+
+    uglify: {
+      options: {
+        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n',
+      },
+      build: {
+        files: {
+          './public/dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>'],
+        },
+      },
+    },
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
