@@ -51,6 +51,55 @@ module.exports = function (grunt) {
       },
     },
 
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+        },
+        src: ['specs/**/*.js'],
+      },
+    },
+
+    nodemon: {
+      dev: {
+        script: 'index.js',
+      },
+    },
+
+    shell: {
+      mongo: {
+        command: 'mongod',
+        options: {
+          async: true,
+        },
+      },
+
+      prodServer: {
+        command: 'git push heroku master',
+        options: {
+          stdout: true,
+          stderr: true,
+          failsOnError: true,
+        },
+      },
+    },
+
+    watch: {
+      scripts: {
+        files: [
+          './public/client/**/*.js',
+        ],
+        tasks: [
+          'concat',
+          'uglify',
+        ],
+      },
+      css: {
+        files: 'public/*.css',
+        tasks: ['cssmin'],
+      },
+    },
+
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
