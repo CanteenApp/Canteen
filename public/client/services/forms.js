@@ -13,7 +13,7 @@ angular.module('canteen.forms', [])
     .catch(function(err) {
       console.error(err);
     });
-  };
+  }
 
   return {
     submitTrip: submitTrip
