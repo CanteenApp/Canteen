@@ -1,5 +1,5 @@
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 @media (max-width: 979px) {
   body {
@@ -8,8 +8,25 @@ body {
 }
 
 .landing {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  width: 100%;
   background-image: url("img/blackrock-mountain.jpg");
   background-size: cover;
+}
+.landing-body {
+  padding-top: 200px;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0 0 10px;
+}
+.landing-content {
+  color: #fff;
+  padding-top: 1px;
+  padding-bottom: 20px;
+  background-color: rgba(28,77,178,.7);
 }
 
 .google-signin {
@@ -19,17 +36,11 @@ body {
   margin: auto;
   background-image: url("img/buttons/google-signin/btn_google_signin_light_normal_web.png");
 }
-.google-signin:hover {
-  display: block;
-  width: 191px;
-  height: 46px;
-  margin: auto;
-  background-image: url("img/buttons/google-signin/btn_google_signin_light_focus_web.png");
-}
 .google-signin:active {
-  display: block;
-  width: 191px;
-  height: 46px;
-  margin: auto;
   background-image: url("img/buttons/google-signin/btn_google_signin_light_pressed_web.png");
+}
+
+.navbar {
+  background-color: #215CD4;
+  border-color: #888;
 }
