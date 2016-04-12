@@ -1,27 +1,30 @@
 var List = require('./listModel.js');
-var mongoose = require('mongoose');
 
 module.exports = {
-  getAllLists: function (id, next) {
-    List.find({tripId: id}, function (err, lists) {
+  getAllLists: function (req, next) {
+    List.find({tripId: req.body.trip_id})
+      .exec(function (err, lists) {
         next(err, lists);
       });
   },
 
-  createList: function (newList, next) {
-    List.create(newList, function (err, list) {
-        next(err, list);
-      });  
+  createList: function (req, next) {
+    List.create(req.body, function (err, list) {
+      next(err, list);
+    });  
   },
 
-  getList: function (id, next) {
-    List.findOne({list_id: id}, function (err, list) {
+  getList: function (req, next) {
+    List.findById(req.params._id)
+      .exec(function (err, list) {
         next(err, list);
       });
   },
 
-  updateList: function (id, updates, next) {
-    List.update({list_id: id}, updates, function (err, list) {
+  updateList: function (req, next) {
+    var options = { new: true };
+    List.findByIdAndUpdate(req.params._id, req.body, options)
+      .exec(function (err, list) {
         next(err, list);
       });
   }

@@ -1,29 +1,29 @@
 var Task = require('./taskModel');
 
 module.exports = {
-  getAllTasks: function (id, next) {
-    Task.find({listId: id})
+  getAllTasks: function (req, next) {
+    Task.find({listId: req.body.list_id})
       .exec(function (err, tasks) {
         next(err, tasks);
       });
   },
 
-  createTask: function (newTask, next) {
-    Task.create(newTask)
-      .exec(function (err, task) {
-        next(err, task);
+  createTask: function (req, next) {
+    Task.create(req.body, function (err, task) {
+      next(err, task);
     });
   },
 
-  getTask: function (id, next) {
-    Task.findOne({task_id: id})
+  getTask: function (req, next) {
+    Task.findById(req.params._id)
       .exec(function (err, task) {
         next(err, task);
       });
   },
 
-  updateTask: function (id, updates, next) {
-    Task.update({task_id: id}, {$set: updates})
+  updateTask: function (req, next) {
+    var options = { new: true };
+    Task.findByIdAndUpdate(req.params._id, req.body, options)
       .exec(function (err, task) {
         next(err, task);
       });
