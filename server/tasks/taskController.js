@@ -1,5 +1,4 @@
-var Task = require('./taskModel.js');
-var mongoose = require('mongoose');
+var Task = require('./taskModel');
 
 module.exports = {
   getAllTasks: function (id, next) {
