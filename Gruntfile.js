@@ -111,7 +111,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   // Launch local server, database, and watch for changes on client .js files
-  grunt.registerTask('server-dev', function (target) {
+  grunt.registerTask('server-dev', function () {
     grunt.task.run(['shell:mongo']);
 
     var nodemon = grunt.util.spawn({
@@ -123,4 +123,33 @@ module.exports = function (grunt) {
     nodemon.stderr.pipe(process.stderr);
     grunt.task.run(['watch']);
   });
+
+  // Run both our spec files and jshint
+  grunt.registerTask('test', [
+    'jshint',
+    'mochaTest',
+  ]);
+
+  // Run concat, uglify and cssmin
+  grunt.registerTask('build', [
+    'concat',
+    'uglify',
+    'cssmin',
+  ]);
+
+  // Launches server depending on environment
+  grunt.registerTask('upload', function () {
+    if (grunt.option('prod')) {
+      grunt.task.run(['shell:prodServer']);
+    } else {
+      grunt.task.run(['server-dev']);
+    }
+  });
+
+  // run all tests, boot up server, and concat/minifiy/uglify .js & css files
+  grunt.registerTask('deploy', [
+    'test',
+    'upload',
+    'build',
+  ]);
 };
