@@ -1,40 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="banner col-md-8 col-md-offset-2">
-    </div>
-  </div>
+<div class="landing">
+  <div class="landing-body">
+    <div class="landing-content">
+      <h1>Canteen</h1>
+      <h3>Don’t get lost planing your next outdoor adventure</h3>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>Canteen App</h1>
-      <h4>Don’t get lost planing your next outdoor adventure</h4>
-    </div>
-  </div>
+      <br>
 
-  <br>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <form class="form-group" ng-submit="">
-        <label for="username">Username</label>
-        <input class="form-control" id="username" type="text" placeholder="Enter your username" ng-model="data.username">
-
-        <br>
-
-        <label for="password">Password</label>
-        <input class="form-control" id="password" type="text" placeholder="Enter your password" ng-model="data.username">
-      </form>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <a ui-sref="signup">
-        <button class="btn btn-default">Sign-Up</button>
-      </a>
-      <a ui-sref="tripForm">
-        <button class="btn btn-default">Plan A Trip</button>
-      </a>
+      <!-- Make dynamic with environment -->
+      <a class="google-signin" href="http://localhost:3333/connect/google"></a>
     </div>
   </div>
 </div>

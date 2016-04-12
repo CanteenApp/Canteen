@@ -1,11 +1,16 @@
+# Dependencies
 node_modules/
 public/bower_components/
-*.log
-
 build/
 dist/
 
+# Miscellaneous
+*.log
+.DS_Store
+
+# Floobits
 .floo
 .flooignore
 
-.DS_Store
+# API Keys
+server/.config/*
