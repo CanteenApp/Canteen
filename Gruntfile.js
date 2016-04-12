@@ -38,6 +38,19 @@ module.exports = function (grunt) {
         },
       },
     },
+
+    cssmin: {
+      options: {
+        keepSpecialComments: 0,
+        banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n',
+      },
+      build: {
+        files: {
+          './public/dist/style.min.css': './public/client/style.css',
+        },
+      },
+    },
+
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
