@@ -1,3 +1,5 @@
+var env = process.env.NODE_ENV;
+
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -139,17 +141,22 @@ module.exports = function (grunt) {
 
   // Launches server depending on environment
   grunt.registerTask('upload', function () {
-    if (grunt.option('prod')) {
-      grunt.task.run(['shell:prodServer']);
-    } else {
-      grunt.task.run(['server-dev']);
+    if (env === 'development') {
+      grunt.task.run(['build']);
+      return;
+    }
+
+    if (env === 'production') {
+      grunt.task.run(['deploy']);
+      return;
     }
   });
 
   // run all tests, boot up server, and concat/minifiy/uglify .js & css files
   grunt.registerTask('deploy', [
-    'test',
-    'upload',
+
+    // Test fails due to missing OAuth keys set on production
+    // 'test',
     'build',
   ]);
 };
