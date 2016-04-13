@@ -10,7 +10,27 @@ var tripSchema = new mongoose.Schema({
   dates: {
     start: Date,
     end: Date,
-  }
+  },
+  tasks:{
+    type:Array,
+    default:[{
+      taskName:String,
+      statusCode: {
+        type: Number,
+        default: 0
+      },
+      assignedTo: {
+        type: Array,
+        default: []
+      },
+      description: String,
+      bullets: {
+        type: Array,
+        default: []
+      },
+      category: String
+    }],
+  },
 });
 
 module.exports = mongoose.model('Trip', tripSchema);
