@@ -17,7 +17,7 @@
   <script src="client/landingPage/landingPage.js"></script> -->
   <script src="dist/canteen.min.js"></script>
 </head>
-<body ng-app="canteen">
+<body ng-app="canteen" ng-controller="indexControl">
 
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
@@ -27,9 +27,10 @@
     </div>
 
     <ul class="nav navbar-nav">
-      <!-- chang sref's to respective states -->
+      <!-- change sref's to respective states -->
       <li><a style="color: #FFF" ui-sref="tripForm">Create Trip</a></li>
-      <li><a style="color: #FFF" ui-sref="#">Lists</a></li>
+      <!-- this sref is a test. change to dropdown of individual lists -->
+      <li><a style="color: #FFF" ui-sref="listView({listName: listName})">Lists</a></li>
       <li><a style="color: #FFF" ui-sref="#">Members</a></li>
     </ul>
 
@@ -37,7 +38,6 @@
 </nav>
 
   <div ui-view></div>
-  <a ui-sref="tripForm"></a>
 
 </body>
 </html>

@@ -2,7 +2,7 @@ angular.module('canteen.tripForm', [
  'canteen.forms',
 ])
 
-.controller('tripFormCtrl', [
+.controller('tripForm', [
   '$scope',
   'formFactory',
   function ($scope, formFactory) {
@@ -19,7 +19,7 @@ angular.module('canteen.tripForm', [
       email: ''
     };
     $scope.addMember = function() {
-      $scope.tripFrom.members.push($scope.tripMember);
+      $scope.tripForm.members.push($scope.tripMember);
       $scope.tripMember = {};
     };
     $scope.createTrip = function() {
