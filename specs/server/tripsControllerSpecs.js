@@ -1,4 +1,3 @@
-var express = require('express');
 var expect = require('chai').expect;
 
 var Trips = require('../../server/trips/tripsController');

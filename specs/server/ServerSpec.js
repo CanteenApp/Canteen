@@ -1,16 +1,10 @@
 var request = require('supertest');
-var express = require('express');
 var expect = require('chai').expect;
-var chai = require('chai');
 var app = require('../../server');
-var mongoose = require('mongoose');
-
-var db = require('../../server/db/config');
-var Trips = require('../../server/trips/tripsController');
 var Trip = require('../../server/trips/tripModel');
-var clearDB = function (done) {
-  mongoose.connection.collections.trips.remove(done);
-};
+// var clearDB = function (done) {
+//   mongoose.connection.collections.trips.remove(done);
+// };
 
 describe('Invalid Routes', function () {
   // test that proper error code is recieved for invalid url
@@ -47,6 +41,8 @@ describe('API Routes', function () {
   };
 
   describe('/api/trips', function () {
+    var tripId;
+
     // test getAll trips
     describe('GET', function () {
       // expect a GET request to api/trips to return all trips
@@ -91,8 +87,6 @@ describe('API Routes', function () {
           end: new Date(),
         },
       };
-
-      var stringTrip = JSON.stringify(newTrip);
 
       it('Sould respond with 201 (CREATED) and return the tripname', function (done) {
         request(app)

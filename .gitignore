@@ -2,7 +2,7 @@
 node_modules/
 public/bower_components/
 build/
-dist/
+public/dist
 
 # Miscellaneous
 *.log
