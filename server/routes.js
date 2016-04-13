@@ -25,47 +25,47 @@ var checkUser = function (req, res, next) {
   if (isLoggedIn(req)) {
     next();
   } else {
-    res.redirect('/landingPage');
+    res.redirect('/');
   }
 };
 
 module.exports = function (app) {
 
   /* Trip Routes */
-  app.route('/api/trips', checkUser)
-    .get(function (req, res) {
+  app.route('/api/trips')
+    .get(checkUser, function (req, res) {
       tripsController.getAllTrips(function (err, data) {
         sendResponse(res, err, data, 200);
       });
     })
-    .post(function (req, res) {
+    .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
         sendResponse(res, err, data, 201);
       });
     });
 
   app.route('/api/trips/:tripId', checkUser)
-    .get(function (req, res) {
+    .get(checkUser, function (req, res) {
       tripsController.getTrip(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     })
-    .put(function (req, res) {
+    .put(checkUser, function (req, res) {
       tripsController.updateTrip(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
 
   /* Task Routes */
-  app.route('/api/tasks/add/:tripId', checkUser)
-    .post(function (req, res){
+  app.route('/api/tasks/add/:tripId')
+    .post(checkUser, function (req, res){
       tripsController.addTask(req, function(err, data) {
         sendResponse(res, err, data, 201);
       });
     });
 
   app.route('/api/tasks/:tripId/:taskId', checkUser)
-    .delete(function (req, res) {
+    .delete(checkUser, function (req, res) {
       tripsController.removeTask(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
@@ -74,14 +74,14 @@ module.exports = function (app) {
 
   /* Task Assignment Routes */  
   app.route('/api/assign/:tripId', checkUser)
-    .delete(function (req, res) {
+    .delete(checkUser, function (req, res) {
       tripsController.assignTask(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
 
   app.route('/api/assign/:tripId/:memberId', checkUser)
-    .delete(function (req, res) {
+    .delete(checkUser, function (req, res) {
       tripsController.unassignTask(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
