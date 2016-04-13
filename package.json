@@ -9,8 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "prepublish": "./node_modules/bower/bin/bower install",
-    "postinstall": "grunt upload"
+    "postinstall": "grunt upload && ./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
