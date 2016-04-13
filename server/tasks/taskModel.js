@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var taskSchema = new mongoose.Schema({
-  listId: String,
+  tripName: String,
+  listName: String,
   taskName: String,
   statusCode: {
     type: Number,

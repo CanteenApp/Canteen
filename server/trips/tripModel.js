@@ -10,11 +10,7 @@ var tripSchema = new mongoose.Schema({
   dates: {
     start: Date,
     end: Date,
-  },
-  lists:{
-    type:Array,
-    default:[],
-  },
+  }
 });
 
 module.exports = mongoose.model('Trip', tripSchema);

@@ -2,7 +2,7 @@ var Task = require('./taskModel');
 
 module.exports = {
   getAllTasks: function (req, next) {
-    Task.find({listId: req.body.list_id})
+    Task.find({tripName: req.params._trip})
       .exec(function (err, tasks) {
         next(err, tasks);
       });
