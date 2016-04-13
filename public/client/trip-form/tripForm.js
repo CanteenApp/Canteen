@@ -2,7 +2,10 @@ angular.module('canteen.tripForm', [
  'canteen.forms'
 ])
 
-.controller('tripFormCtrl', ['$scope', 'formFactory', function($scope, formFactory) {
+.controller('tripFormCtrl', [
+  '$scope',
+  'formFactory',
+  function ($scope, formFactory) {
     $scope.tripForm = {
     tripName: '',
     members: [],
