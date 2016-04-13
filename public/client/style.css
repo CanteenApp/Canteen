@@ -12,7 +12,7 @@ body {
   top: 50px;
   bottom: 0;
   width: 100%;
-  background-image: url("./img/blackrock-mountain.jpg");
+  background-image: url("../img/blackrock-mountain.jpg");
   background-size: cover;
 }
 .landing-body {
@@ -34,10 +34,10 @@ body {
   width: 191px;
   height: 46px;
   margin: auto;
-  background-image: url("./img/buttons/google-signin/btn_google_signin_light_normal_web.png");
+  background-image: url("../img/buttons/google-signin/btn_google_signin_light_normal_web.png");
 }
 .google-signin:active {
-  background-image: url("./img/buttons/google-signin/btn_google_signin_light_pressed_web.png");
+  background-image: url("../img/buttons/google-signin/btn_google_signin_light_pressed_web.png");
 }
 
 .navbar {
