@@ -15,7 +15,9 @@ angular.module('canteen.forms', [])
       .catch(function(err) {
         console.error(err);
       });
-    }
+    },
+
+    //todo submit task
 
     return {
       submitTrip: submitTrip
