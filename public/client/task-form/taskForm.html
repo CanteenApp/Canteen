@@ -23,11 +23,16 @@
           </span> 
         </div>
 
+        <br>
         <!-- category 
         make a get request to pull category into dropdown
         Need a get method on the forms.js
         http://stackoverflow.com/questions/15688313/how-can-i-populate-a-select-dropdown-list-from-a-json-feed-with-angularjs
         https://docs.angularjs.org/api/ng/directive/ngOptions-->
+        <label for="task-category">Category:
+          <select ng-model="taskFormCategory" ng-options="task.category for category in taskForm"></select>          
+        </label>
+
         
         <!-- assigned to
         Similar to above
