@@ -16,9 +16,22 @@ angular.module('canteen.forms', [])
         console.error(err);
       });
     }
-
+    function submitTask(taskData) {
+      return $http({
+        method: 'POST',
+        url: 'api/createTask',
+        data: taskData
+      })
+      .then(function(taskData) {
+        return taskData;
+      })
+      .catch(function(err) {
+        console.error(err);
+      });
+    }
     return {
-      submitTrip: submitTrip
+      submitTrip: submitTrip,
+      submitTask: submitTask,
     };
   },
 ]);

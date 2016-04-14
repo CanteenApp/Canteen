@@ -1,6 +1,7 @@
 angular.module('canteen', [
   'canteen.landingPage',
   'canteen.tripForm',
+  'canteen.taskForm',
   'canteen.tripData',
   'canteen.listView',
   'canteen.trip',
@@ -29,6 +30,11 @@ angular.module('canteen', [
       url: '/trip/:tripId',
       templateUrl: 'client/trip/tripView.html',
       controller: 'tripCtrl',
+    })
+    .state('taskForm', {
+      url: '/task-form',
+      templateUrl: 'client/task-form/taskForm.html',
+      controller: 'taskForm'
     });
     // .state('tripForm.lists', {
     //   url: "/lists",
