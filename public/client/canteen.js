@@ -1,6 +1,7 @@
 angular.module('canteen', [
   'canteen.landingPage',
   'canteen.tripForm',
+  'canteen.tripData',
   'canteen.listView',
   'environment',
   'ui.bootstrap',
