@@ -2,8 +2,9 @@ angular.module('canteen', [
   'canteen.landingPage',
   'canteen.tripForm',
   'canteen.listView',
+  'environment',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router',
 ])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/landing-page');
@@ -11,7 +12,7 @@ angular.module('canteen', [
     .state('landingPage', {
       url: '/landing-page',
       templateUrl: 'client/landingPage/landingPage.html',
-      controller : 'landingPage'
+      controller: 'landingPage',
     })
     .state('tripForm', {
       url: '/trip-form',
