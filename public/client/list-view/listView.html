@@ -1,20 +1,37 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1> {{ list.listName }} </h1>
-      <h4>  </h4>
-    </div>
-  </div>
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <ul>
-        <li ng-repeat="task in list.tasks">
-          <h3> {{ task.taskName }} [
-            <span ng-repeat="person in task.assignedTo"> {{ person }} </span>
-          ] </h3>
-        </li>
-      </ul>
+
+      <h4>
+        <span style="padding-right: 15px" ng-repeat="person in trip.members">
+          {{ person }}
+          <svg height="12" width="10"> 
+            <circle cx="5" cy="6" r="5" fill="{{ color[person] = color.colors[$index] }}" />
+          </svg>
+        </span>
+      </h4>
+
     </div>
   </div>
+
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+      <ul>
+        <li ng-repeat="task in trip.tasks">
+          <h3> {{ task.taskName }}
+            <span ng-repeat="person in task.assignedTo">
+              <svg height="12" width="10"> 
+                <circle cx="5" cy="6" r="5" fill="{{ color[person] }}" />
+              </svg>
+            </span>
+          </h3>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
 </div>
