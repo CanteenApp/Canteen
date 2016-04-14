@@ -6,30 +6,36 @@ angular.module('canteen.taskForm', [
 .controller('taskForm', [
 	'$scope',
 	'formFactory',
-	function ($scope, formFactory) {
-		$scope.taskForm = {
+  function ($scope, formFactory) {
+    $scope.taskForm = {
       taskName: '',
       statusCode: 0,
       assignedTo: [],
       description: '',
       bullets: [],
-      category: [],
+      category: '',
     };
-    $scope.taskBullet = {
-      item: ''
-    };
-    $scope.taskCategory = {
-      category: ''
-    };
+
+    $scope.assignee = '';
+    $scope.taskBullet = '';
+    $scope.chooseCategory = '';
+    //TODO: grab trip id from trip
+    // $scope.tripId = number;
+
     $scope.addBullet = function () {
       $scope.taskForm.bullets.push($scope.taskBullet);
+      $scope.taskBullet = '';
     };
     $scope.addCategory = function () {
-      $scope.tripForm.category.push($scope.taskCategory);
-      $scope.taskCategory = {};
+      $scope.taskForm.category = $scope.chooseCategory;
+      $scope.chooseCategory = '';
     };
-    $scope.createTask = function (taskForm, tripId) {
-      formFactory.submitTask($scope.taskForm);
+    $scope.addAssignedTo = function () {
+      $scope.taskForm.assignedTo.push($scope.assignee);
+      $scope.assignee = '';
+    }
+    $scope.createTask = function () {
+      formFactory.submitTask($scope.taskForm, $scope.tripId);
     };
   }
 ]);

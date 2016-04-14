@@ -14,13 +14,21 @@
         <input class="form-control" id="task-description" type="text" placeholder="Enter the task description" ng-model="taskForm.taskName"></input>
 
         <br>
-        <!-- bullets -->
+        <!-- Add bullets -->
         <label for="task-bullets">Bullets:</label>
         <div class="input-group">
-          <input class="form-control" type="text" placeholder="add bullet" ng-model="taskBullet.item"></input>
+          <input class="form-control" type="text" placeholder="Enter bullet description" ng-model="taskBullet"></input>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addBullet()">Add</button>
           </span> 
+        </div>
+        <!-- Display bullets -->
+        <div class="row">
+          <div class="col-md-8">
+            <div ng-repeat="bullet in taskForm.bullets">
+              <h4> {{ bullet}} </h4>
+            </div>
+          </div>
         </div>
 
         <br>
@@ -29,15 +37,20 @@
         Need a get method on the forms.js
         http://stackoverflow.com/questions/15688313/how-can-i-populate-a-select-dropdown-list-from-a-json-feed-with-angularjs
         https://docs.angularjs.org/api/ng/directive/ngOptions-->
-        <label for="task-category">Category:
-          <select ng-model="taskFormCategory" ng-options="task.category for category in taskForm"></select>          
-        </label>
-
+        <label for="task-category">Category: </label>
+<!--         TODO: Need to pull all categories from trip -->
+          <select ng-model="chooseCategory" ng-options="item for item in testCat"></select>      
         
-        <!-- assigned to
-        Similar to above
-        -->
+        <br>
+        <br>
 
+        <label for="task-assign">Assign To:</label>
+        <!-- TODO: Need to pull all categories from trip -->
+        <select ng-model="assignee" ng-options="person for person in members"></select>
+        <br>
+        <br>
+
+        <button class="btn btn-primary" type="submit">Create Task!</button>
 
       </form> 
     </div>    
