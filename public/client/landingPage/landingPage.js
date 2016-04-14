@@ -6,7 +6,7 @@ angular.module('canteen.landingPage', [])
     $scope.data = {};
 
     if (envService.is('production')) {
-      $scope.googleUrl = 'http://canteenapp.herokuapp.com/connect/google';
+      $scope.googleUrl = 'https://canteenapp.herokuapp.com/connect/google';
     } else {
       $scope.googleUrl = 'http://localhost:3333/connect/google';
     }

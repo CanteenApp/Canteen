@@ -22,23 +22,23 @@
 </head>
 <body ng-app="canteen" ng-controller="indexControl">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <!-- change sref to overview when created -->
-      <a class="navbar-brand" style="color: #FFF" ui-sref="landingPage"><strong>Canteen</strong></a>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- change sref to overview when created -->
+        <a class="navbar-brand" style="color: #FFF" ui-sref="landingPage"><strong>Canteen</strong></a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <!-- change sref's to respective states -->
+        <li><a style="color: #FFF" ui-sref="tripForm">Create Trip</a></li>
+        <!-- this sref is a test. change to dropdown of individual lists -->
+        <li><a style="color: #FFF" ui-sref="listView({listName: listName})">Lists</a></li>
+        <li><a style="color: #FFF" ui-sref="#">Members</a></li>
+      </ul>
+
     </div>
-
-    <ul class="nav navbar-nav">
-      <!-- change sref's to respective states -->
-      <li><a style="color: #FFF" ui-sref="tripForm">Create Trip</a></li>
-      <!-- this sref is a test. change to dropdown of individual lists -->
-      <li><a style="color: #FFF" ui-sref="listView({listName: listName})">Lists</a></li>
-      <li><a style="color: #FFF" ui-sref="#">Members</a></li>
-    </ul>
-
-  </div>
-</nav>
+  </nav>
 
   <div ui-view></div>
 

@@ -1,4 +1,4 @@
-angular.module('canteen', ['environment'])
+angular.module('canteen.environment', ['environment'])
 
 .config(function (envServiceProvider) {
   // https://github.com/juanpablob/angular-environment
