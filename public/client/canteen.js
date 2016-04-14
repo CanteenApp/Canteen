@@ -5,6 +5,7 @@ angular.module('canteen', [
   'canteen.tripData',
   'canteen.listView',
   'canteen.trip',
+  'ngMap',
   'ui.bootstrap',
   'ui.router',
 ])
