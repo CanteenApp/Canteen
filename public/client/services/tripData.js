@@ -52,7 +52,7 @@ angular.module('canteen.tripData', [])
         assignedTo: ['Romulus'],
         description: 'I hear they\'re tasty',
         bullets: [
-          'Just let Romulus do his thing'
+          'Just let Romulus do his thing',
           'If it comes after you, run',
         ],
         category: 'other'
