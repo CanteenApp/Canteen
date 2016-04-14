@@ -1,5 +1,8 @@
 var tripsController = require('./trips/tripsController');
 var userController = require('./users/userController');
+var Purest = require('purest');
+
+var google = new Purest({provider: 'google'});
 
 /* Utilities */
 var sendResponse = function (res, err, data, status) {
@@ -88,32 +91,40 @@ module.exports = function (app) {
     });
 
   /* User Routes & Authentication */
-  app.route('/api/auth')
-    .post(function (req, res) {
-      userController.signIn(req, function (err, data) {
-        if(err){
-          sendResponse(res, err, null, null);
-        }else{
-          createSession(req, res, data);
-        }
-      });
-    })
-    .put(function (req, res) {
-      userController.signUp(req, function (err, data) {
-        if(err){
-          sendResponse(res, err, null, null);
-        }else{
-          createSession(req, res, data);
-        }
-      });
-    });
+  // app.route('/api/auth')
+  //   .post(function (req, res) {
+  //     userController.signIn(req, function (err, data) {
+  //       if(err){
+  //         sendResponse(res, err, null, null);
+  //       }else{
+  //         createSession(req, res, data);
+  //       }
+  //     });
+  //   })
+  //   .put(function (req, res) {
+  //     userController.signUp(req, function (err, data) {
+  //       if(err){
+  //         sendResponse(res, err, null, null);
+  //       }else{
+  //         createSession(req, res, data);
+  //       }
+  //     });
+  //   });
 
   /* OAuth Route */
   app.route('/callback')
     .get(function(req, res){
-      if(req.query){
-        //TODO: Create methods to store user data from req.query
-        createSession(req, res, req.query);
-      }
+      google.get('https://www.googleapis.com/oauth2/v2/userinfo?alt=json', {
+        auth: {bearer: req.session.grant.response.access_token}
+      }, function (err, nope, body) {
+        userController.createUser(body, function(err, user) {
+          req.session.user = user;
+          if (!user.trip) {
+            res.redirect('/#/trip-form');
+          } else {
+            res.redirect('/#/list');
+          }
+        });
+      })
     });
 };
