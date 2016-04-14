@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="col-md-3 trip">
+    <div class="well well-lg">
+      <div class="row">
+        <h4>{{ trip.tripName }}</h4>
+      </div>
+      <div class="row google-maps">
+        <img src="http://www.remueracatholic.org.nz/Portals/84/MapThumbnail.jpg" alt="..." class="img-thumbnail">
+      </div>
+      <div class="row">
+        <p><strong>{{ trip.location }}</strong></p>
+      </div>
+      <div class="row invited">
+        <p><strong>Invited:</strong></p>
+        <ul class="members">
+          <li class="" ng-repeat="member in trip.members">
+            {{ member }}
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <p><strong>Dates:</strong><br />
+          {{ trip.dates.start }} to {{ trip.dates.end }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
