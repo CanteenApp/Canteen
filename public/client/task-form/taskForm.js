@@ -1,27 +1,35 @@
 angular.module('canteen.taskForm', [
 	'canteen.forms'
 ])
+//grab tripId from parent controller
 
-.controller('taskFormCtrl', [
+.controller('taskForm', [
 	'$scope',
 	'formFactory',
 	function ($scope, formFactory) {
 		$scope.taskForm = {
-      listId = '',
-      taskName = '',
-      statusCode = 0,
-      assignedTo = [],
-      description = '',
-      bullets = [],
-    },
-  };
-  $scope.taskCategory = {
-    category: '',
-  };
-  $scope.addCategory = function (category) {
-    //TODO: add code here
-  };
-  $scope.createTask = function () {
-    //TODO which function does this call to add a task? Do I need to create a formFactory to post a task?
+      taskName: '',
+      statusCode: 0,
+      assignedTo: [],
+      description: '',
+      bullets: [],
+      category: [],
+    };
+    $scope.taskBullet = {
+      item: ''
+    };
+    $scope.taskCategory = {
+      category: ''
+    };
+    $scope.addBullet = function () {
+      $scope.taskForm.bullets.push($scope.taskBullet);
+    };
+    $scope.addCategory = function () {
+      $scope.tripForm.category.push($scope.taskCategory);
+      $scope.taskCategory = {};
+    };
+    $scope.createTask = function (taskForm, tripId) {
+      formFactory.submitTask($scope.taskForm);
+    };
   }
 ]);
