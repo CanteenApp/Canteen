@@ -11,9 +11,25 @@ var tripSchema = new mongoose.Schema({
     start: Date,
     end: Date,
   },
-  lists:{
+  tasks:{
     type:Array,
-    default:[],
+    default:[{
+      taskName:String,
+      statusCode: {
+        type: Number,
+        default: 0
+      },
+      assignedTo: {
+        type: Array,
+        default: []
+      },
+      description: String,
+      bullets: {
+        type: Array,
+        default: []
+      },
+      category: String
+    }],
   },
 });
 
