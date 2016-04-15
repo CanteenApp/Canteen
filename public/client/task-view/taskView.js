@@ -1,6 +1,6 @@
-angular.module('canteen.listView', [])
+angular.module('canteen.taskView', [])
 
-.controller('listView', [
+.controller('taskView', [
   '$scope',
   'trip',
   function($scope, trip) {
