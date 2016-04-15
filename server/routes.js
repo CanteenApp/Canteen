@@ -43,6 +43,8 @@ module.exports = function (app) {
     })
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
+        console.log('init')
+        console.log(data);
         userController.addTrip(req.session.user.id, data._id, function(){
           res.redirect('/#/trip');
         });
@@ -77,7 +79,7 @@ module.exports = function (app) {
     });
     //TODO: Add update task route here
 
-  /* Task Assignment Routes */  
+  /* Task Assignment Routes */
   app.route('/api/assign/:tripId', checkUser)
     .delete(checkUser, function (req, res) {
       tripsController.assignTask(req, function (err, data) {
