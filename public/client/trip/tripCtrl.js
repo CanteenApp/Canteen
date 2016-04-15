@@ -5,6 +5,7 @@ angular.module('canteen.trip', [])
   'NgMap',
   function ($scope, trip, NgMap) {
     $scope.trip = trip;
+    console.log($scope.trip)
 
     // NgMap.getMap().then(function (map) {
     // });
