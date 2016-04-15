@@ -6,9 +6,11 @@ body {
     padding-top: 0px;
   }
 }
-.ng-invalid{
-  background-color: red;
+
+input.ng-invalid.ng-dirty{
+  border-color: red;
 }
+
 .landing {
   position: absolute;
   top: 50px;

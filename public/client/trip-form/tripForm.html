@@ -5,7 +5,7 @@
 
       <br>
 
-      <form class="form-group" ng-submit="createTrip()" novalidate>
+      <form class="form-group" name="tripForm" ng-submit="tripForm.$valid && createTrip()" novalidate>
         <label for="trip-name">Trip Name:</label>
         <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName" required></input>
 
