@@ -5,8 +5,8 @@ angular.module('canteen.taskView', [])
   'trip',
   function($scope, trip) {
     $scope.trip = trip;
-    $scope.color = {
-      colors: ['red', 'blue','purple', 'green', 'orange']
-    }
+    // $scope.color = {
+    //   colors: ['red', 'blue','purple', 'green', 'orange']
+    // }
   }
 ]);
