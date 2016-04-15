@@ -5,29 +5,29 @@
 
       <br>
 
-      <form class="form-group" ng-submit="createTrip()">
+      <form class="form-group" ng-submit="createTrip()" novalidate>
         <label for="trip-name">Trip Name:</label>
-        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName"></input>
+        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName" required></input>
 
         <br>
 
         <label for="trip-location">Trip Destination:</label>
-        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location"></input>
+        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location" required></input>
 
         <br>
 
         <label for="trip-date">Trip Dates:</label>
         <div class="input-group" id="trip-date">
-          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start"></input>
+          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start" required></input>
           <span class="input-group-addon"> - </span>
-          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end"></input>
+          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end" required></input>
         </div>
 
         <br>
 
         <label for="trip-invite">Trip Members:</label>
         <div class="input-group">
-          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
+          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email" required></input>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
           </span>
