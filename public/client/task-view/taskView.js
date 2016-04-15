@@ -3,10 +3,11 @@ angular.module('canteen.taskView', [])
 .controller('taskView', [
   '$scope',
   'trip',
-  function($scope, trip) {
+  function ($scope, trip) {
     $scope.trip = trip;
-    // $scope.color = {
-    //   colors: ['red', 'blue','purple', 'green', 'orange']
-    // }
-  }
+    $scope.updateStatus = function () {
+      // add factory method
+      console.log('clicked');
+    };
+  },
 ]);
