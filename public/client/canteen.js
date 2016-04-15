@@ -44,10 +44,3 @@ angular.module('canteen', [
     //   controller: TBD
     // });
 });
-
-// .controller('indexControl', [
-//   '$scope',
-//   function ($scope) {
-//     $scope.listName = ''; // this will have to equal the name of the list that was clicked
-//   },
-// ]);

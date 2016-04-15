@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="navBar">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- change sref to overview when created -->
+      <a class="navbar-brand" style="color: #FFF" ui-sref="landingPage"><strong>Canteen</strong></a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <!-- change sref's to respective states -->
+      <li><a style="color: #FFF" ui-sref="tripForm">Create Trip</a></li>
+      <!-- this sref is a test. change to dropdown of individual lists -->
+      <li><a style="color: #FFF" ui-sref="listView({listName: listName})">Lists</a></li>
+      <li><a style="color: #FFF" ui-sref="#">Members</a></li>
+      <li><a style="color: #FFF" ui-sref="#">Logout</a></li>
+    </ul>
+
+  </div>
+</nav>
