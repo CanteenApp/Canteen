@@ -44,7 +44,7 @@ module.exports = function (app) {
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
         userController.addTrip(req.session.user.id, data._id, function(){
-          res.redirect('/#/tripView');
+          res.redirect('/#/trip');
         });
       });
     });

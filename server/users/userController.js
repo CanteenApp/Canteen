@@ -29,11 +29,12 @@ module.exports = {
       console.log(user);
       if (!user) {
         User.create(userData, function (err, result) {
-          next(err, user);
+          next(err, userData);
         })
+      }else{
+        next(err, user);
       }
-      next(err, user);
-    })
+    });
   },
 
   addTrip: function(userId, tripId, next) {
