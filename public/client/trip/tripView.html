@@ -1,43 +1,31 @@
 <div class="container">
-  <div class="col-md-4 trip">
-    <div class="well well-lg">
-      <div class="row">
-        <h3>{{ trip.tripName }}</h3>
+  <div class="table-margin">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ trip.tripName }}</h3>
       </div>
-      <div class="row google-maps">
-        <div map-lazy-load="https://maps.google.com/maps/api/js">
-          <ng-map center="{{ trip.location }}" zoom="10" map-type-id="MapTypeId.HYBRID">
-            <marker position="{{ trip.location }}"></marker>
-          </ng-map>
+      <div class="panel-body">
+        <div class="col-md-6">
+          <div map-lazy-load="https://maps.google.com/maps/api/js">
+            <ng-map center="{{ trip.location }}" zoom="10" map-type-id="MapTypeId.HYBRID">
+              <marker position="{{ trip.location }}"></marker>
+            </ng-map>
+          </div>
+          <p><strong>{{ trip.location }}</strong></p>
+          <p><strong>Invited:</strong></p>
+          <span style="padding-right: 15px" ng-repeat="person in trip.members">
+            {{ person }}
+            <svg height="12" width="10">
+              <circle cx="5" cy="6" r="5" fill="{{ color[person] = color.colors[$index] }}" />
+            </svg>
+          </span>
+          <p><strong>Dates:</strong><br />
+            {{ trip.dates.start }} to {{ trip.dates.end }}
+          </p>
         </div>
+        <div class="col-md-6" ng-controller="taskForm" ng-include="'../client/task-form/taskForm.html'"></div>
       </div>
-      <div class="row">
-        <p><strong>{{ trip.location }}</strong></p>
-      </div>
-      <div class="row invited">
-        <p><strong>Invited:</strong></p>
-        <span style="padding-right: 15px" ng-repeat="person in trip.members">
-          {{ person }}
-          <svg height="12" width="10">
-            <circle cx="5" cy="6" r="5" fill="{{ color[person] = color.colors[$index] }}" />
-          </svg>
-        </span>
-        <!-- <ul class="members">
-          <li class="" ng-repeat="member in trip.members">
-            {{ member }}
-          </li>
-          <svg height="12" width="10">
-            <circle cx="5" cy="6" r="5" fill="{{ color[member] = color.colors[$index] }}" />
-          </svg>
-        </ul> -->
-      </div>
-      <div class="row">
-        <p><strong>Dates:</strong><br />
-          {{ trip.dates.start }} to {{ trip.dates.end }}
-        </p>
-      </div>
-      <div class="row" ng-controller="taskForm" ng-include="'../client/task-form/taskForm.html'"></div>
+      <div class="table-responsive" ng-controller="taskView" ng-include="'../client/task-view/taskView.html'">
     </div>
   </div>
-  <div class="col-md-8" ng-controller="taskView" ng-include="'../client/task-view/taskView.html'"></div>
 </div>

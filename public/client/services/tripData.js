@@ -26,7 +26,7 @@ angular.module('canteen.tripData', [])
       },
       {
         taskName: 'Hammock',
-        statusCode: 0,
+        statusCode: 1,
         assignedTo: ['Jak', 'Rob', 'Todd', 'Ryan'],
         description: 'To sleep in',
         bullets: [
@@ -48,7 +48,7 @@ angular.module('canteen.tripData', [])
       },
       {
         taskName: 'kill bear',
-        statusCode: 0,
+        statusCode: 1,
         assignedTo: ['Romulus'],
         description: 'I hear they\'re tasty',
         bullets: [
