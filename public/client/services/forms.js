@@ -7,28 +7,30 @@ angular.module('canteen.forms', [])
       return $http({
         method: 'POST',
         url: '/api/createTrip',
-        data: tripData
+        data: tripData,
       })
-      .then(function(tripData) {
+      .then(function (tripData) {
         return tripData;
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.error(err);
       });
     }
-    function submitTask(taskData) {
+
+    function submitTask(taskData, tripId) {
       return $http({
         method: 'POST',
-        url: 'api/createTask',
-        data: taskData
+        url: '/api/tasks/add/' + tripId,
+        data: taskData,
       })
-      .then(function(taskData) {
+      .then(function (taskData) {
         return taskData;
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.error(err);
       });
     }
+
     return {
       submitTrip: submitTrip,
       submitTask: submitTask,

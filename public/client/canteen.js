@@ -31,12 +31,12 @@ angular.module('canteen', [
       url: '/trip/:tripId',
       templateUrl: 'client/trip/tripView.html',
       controller: 'tripCtrl',
-    })
-    .state('taskForm', {
-      url: '/task-form',
-      templateUrl: 'client/task-form/taskForm.html',
-      controller: 'taskForm'
     });
+    // .state('taskForm', {
+    //   url: '/task-form',
+    //   templateUrl: 'client/task-form/taskForm.html',
+    //   controller: 'taskForm'
+    // });
     // .state('tripForm.lists', {
     //   url: "/lists",
     //   templateUrl: "client/trip-form/tripFormLists.html",
