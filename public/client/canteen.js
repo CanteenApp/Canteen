@@ -3,7 +3,7 @@ angular.module('canteen', [
   'canteen.tripForm',
   'canteen.taskForm',
   'canteen.tripData',
-  'canteen.listView',
+  'canteen.taskView',
   'canteen.trip',
   'ngMap',
   'ui.bootstrap',
@@ -22,16 +22,16 @@ angular.module('canteen', [
       templateUrl: 'client/trip-form/tripForm.html',
       controller: 'tripForm'
     })
-    .state('listView', {
-      url: '/list/{listName}',
-      templateUrl: 'client/list-view/listView.html',
-      controller: 'listView',
-    })
     .state('tripView', {
       url: '/trip',
       templateUrl: 'client/trip/tripView.html',
       controller: 'tripCtrl',
     });
+    // .state('listView', {
+    //   url: '/list/{listName}',
+    //   templateUrl: 'client/list-view/listView.html',
+    //   controller: 'listView',
+    // })
     // .state('taskForm', {
     //   url: '/task-form',
     //   templateUrl: 'client/task-form/taskForm.html',

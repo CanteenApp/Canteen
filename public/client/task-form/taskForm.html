@@ -1,15 +1,11 @@
-<h3>Create a task</h3>
-
+<h4>Create a task</h4>
 <form class="form-group" ng-submit="createTask()">
   <label for="task-name">Task Name:</label>
   <input class="form-control" id="task-name" type="text" placeholder="Enter a task name" ng-model="taskForm.taskName" />
 
-  <br>
-
   <label for="task-description">Task Description:</label>
   <input class="form-control" id="task-description" type="text" placeholder="Enter the task description" ng-model="taskForm.description"/>
 
-  <br>
   <!-- Add bullets -->
   <label for="task-bullets">Bullets:</label>
   <div class="input-group">
@@ -23,38 +19,28 @@
     <h4> {{ bullet }} </h4>
   </div>
 
-  <br>
   <!-- category
   make a get request to pull category into dropdown
   Need a get method on the forms.js
   http://stackoverflow.com/questions/15688313/how-can-i-populate-a-select-dropdown-list-from-a-json-feed-with-angularjs
   https://docs.angularjs.org/api/ng/directive/ngOptions-->
   <label for="task-category">Category: </label>
-    <input class="form-control" type="text" placeholder="Category" list="category" name="category" ng-model="taskForm.category">
-      <datalist id="category">
-        <option value="Activites" />
-        <option value="Clothing" />
-        <option value="Cooking Supplies" />
-        <option value="Food" />
-        <option value="Gear" />
-        <option value="Lodging" />
-        <option value="Toiletries" />
-        <option value="Transportation" />
-      </datalist>
-
-  <br>
-  <div class="form-group">
-    <label for="task-assign">Assign To:</label>
-    <select class="form-control" ng-model="taskForm.assignedTo" ng-options="member for member in trip.members">
-      <!-- <option value="Activites" />
+  <input class="form-control" type="text" placeholder="Category" list="category" name="category" ng-model="taskForm.category">
+    <datalist id="category">
+      <option value="Activites" />
       <option value="Clothing" />
       <option value="Cooking Supplies" />
       <option value="Food" />
       <option value="Gear" />
       <option value="Lodging" />
       <option value="Toiletries" />
-      <option value="Transportation" /> -->
-    </select>
+      <option value="Transportation" />
+    </datalist>
+  </input>
+
+  <div class="form-group">
+    <label for="task-assign">Assign To:</label>
+    <select class="form-control" ng-model="taskForm.assignedTo" ng-options="member for member in trip.members"></select>
   </div>
 
   <button class="btn btn-primary" type="submit">Create Task!</button>
