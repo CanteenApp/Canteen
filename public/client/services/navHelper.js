@@ -1,17 +1,17 @@
-angular.model('canteen.navHelper', [])
+angular.module('canteen.navHelper', [])
 
 .factory('navFactory', [
   '$http',
   function($http) {
     function endSession () {
       return $http({
-        method: 'POST',
-        url: 'api/endsession'
+        method: 'GET',
+        url: '/logout'
       })
       .then(function (resp) {
         return resp;
       })
-      .cath(function (err) {
+      .catch(function (err) {
         console.error(err);
       });
     }
