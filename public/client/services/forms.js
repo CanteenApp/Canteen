@@ -10,7 +10,6 @@ angular.module('canteen.forms', [])
         data: tripData,
       })
       .then(function (resp) {
-        console.log(resp.body);
         return resp;
       });
     }
