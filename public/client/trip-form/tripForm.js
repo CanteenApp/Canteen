@@ -15,7 +15,6 @@ angular.module('canteen.tripForm', [
         end: '',
       },
     };
-
     $scope.members =  [];
 
     $scope.tripMember = {
@@ -24,7 +23,6 @@ angular.module('canteen.tripForm', [
 
     $scope.addMember = function () {
       $scope.members.push($scope.tripMember);
-      console.log($scope.members);
       $scope.tripMember = {};
     };
 
