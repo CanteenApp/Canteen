@@ -28,7 +28,7 @@ angular.module('canteen', [
       controller: 'listView',
     })
     .state('tripView', {
-      url: '/trip/:tripId',
+      url: '/trip',
       templateUrl: 'client/trip/tripView.html',
       controller: 'tripCtrl',
     });
