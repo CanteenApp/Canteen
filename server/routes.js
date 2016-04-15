@@ -77,7 +77,7 @@ module.exports = function (app) {
     });
     //TODO: Add update task route here
 
-  /* Task Assignment Routes */  
+  /* Task Assignment Routes */
   app.route('/api/assign/:tripId', checkUser)
     .delete(checkUser, function (req, res) {
       tripsController.assignTask(req, function (err, data) {

@@ -15,14 +15,21 @@ angular.module('canteen.tripForm', [
         end: '',
       },
     };
+
+    $scope.members =  [];
+
     $scope.tripMember = {
       email: ''
     };
-    $scope.addMember = function() {
-      $scope.tripForm.members.push($scope.tripMember);
+
+    $scope.addMember = function () {
+      $scope.members.push($scope.tripMember);
+      console.log($scope.members);
       $scope.tripMember = {};
     };
-    $scope.createTrip = function() {
+
+    $scope.createTrip = function () {
+      $scope.tripForm.members = $scope.members;
       formFactory.submitTrip($scope.tripForm);
     };
   }

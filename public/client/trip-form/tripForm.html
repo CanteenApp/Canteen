@@ -27,10 +27,13 @@
 
         <label for="trip-invite">Trip Members:</label>
         <div class="input-group">
-          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email" required></input>
+          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
           </span>
+        </div>
+        <div ng-repeat="member in members">
+          <h5> {{ member.email }} </h5>
         </div>
 
         <br>

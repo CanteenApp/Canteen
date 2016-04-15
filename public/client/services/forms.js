@@ -9,7 +9,7 @@ angular.module('canteen.forms', [])
         url: '/api/trips',
         data: tripData,
       })
-      .then(function(resp){
+      .then(function (resp) {
         return resp;
       });
     }
