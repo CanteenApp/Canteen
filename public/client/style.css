@@ -7,6 +7,10 @@ body {
   }
 }
 
+input.ng-invalid.ng-dirty{
+  border-color: red;
+}
+
 .landing {
   position: absolute;
   top: 50px;

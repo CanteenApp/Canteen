@@ -3,17 +3,16 @@ angular.module('canteen.forms', [])
 .factory('formFactory', [
   '$http',
   function ($http) {
-    function submitTrip(tripData) {
+    function submitTrip(tripData, cb) {
       return $http({
         method: 'POST',
-        url: '/api/createTrip',
+        url: '/api/trips',
         data: tripData,
       })
-      .then(function (tripData) {
-        return tripData;
-      })
-      .catch(function (err) {
-        console.error(err);
+      .then(function successCallback(response) {
+        cb(response.data);
+      }, function errorCallback(response) {
+        console.log(response.data);
       });
     }
 
@@ -23,8 +22,8 @@ angular.module('canteen.forms', [])
         url: '/api/tasks/add/' + tripId,
         data: taskData,
       })
-      .then(function (taskData) {
-        return taskData;
+      .then(function (resp) {
+        return resp.data;
       })
       .catch(function (err) {
         console.error(err);
