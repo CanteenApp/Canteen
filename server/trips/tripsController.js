@@ -22,8 +22,8 @@ module.exports = {
       });
   },
 
-  getTrip: function (req, next) {
-    Trip.findById(req.params.tripId)
+  getTrip: function (tripId, next) {
+    Trip.findById(tripId)
       .exec(function (err, trip) {
         next(err, trip);
       });

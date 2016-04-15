@@ -13,12 +13,12 @@ var sendResponse = function (res, err, data, status) {
     }
 };
 
-var createSession = function (req, res, newUser) {
-  return req.session.regenerate(function () {
-    req.session.user = newUser;
-    res.redirect('/');
-  });
-};
+// var createSession = function (req, res, newUser) {
+//   return req.session.regenerate(function () {
+//     req.session.user = newUser;
+//     res.redirect('/');
+//   });
+// };
 
 var isLoggedIn = function (req){
   return req.session ? !!req.session.user : false;
@@ -43,13 +43,15 @@ module.exports = function (app) {
     })
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
-        sendResponse(res, err, data, 201);
+        userController.addTrip(req.session.user.id, data._id, function(){
+          res.redirect('/#/tripView');
+        });
       });
     });
 
-  app.route('/api/trips/:tripId', checkUser)
+  app.route('/api/trip/', checkUser)
     .get(checkUser, function (req, res) {
-      tripsController.getTrip(req, function (err, data) {
+      tripsController.getTrip(req.session.user.trip, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     })
@@ -122,7 +124,7 @@ module.exports = function (app) {
           if (!user.trip) {
             res.redirect('/#/trip-form');
           } else {
-            res.redirect('/#/list');
+            res.redirect('/#/trip');
           }
         });
       })

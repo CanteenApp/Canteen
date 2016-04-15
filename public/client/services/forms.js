@@ -9,10 +9,8 @@ angular.module('canteen.forms', [])
         url: '/api/trips',
         data: tripData,
       })
-      .then(function successCallback(response) {
-        cb(response.data);
-      }, function errorCallback(response) {
-        console.log(response.data);
+      .then(function(resp){
+        return resp;
       });
     }
 

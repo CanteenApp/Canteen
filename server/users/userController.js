@@ -24,15 +24,22 @@ module.exports = {
       given_name: body.given_name,
       family_name: body.family_name
     };
-    User.find()
-    .where({id: body.id})
+    User.findOne({id: body.id})
     .exec(function (err, user) {
+      console.log(user);
       if (!user) {
-        User.create(userData, function (err, user) {
+        User.create(userData, function (err, result) {
           next(err, user);
         })
       }
       next(err, user);
     })
+  },
+
+  addTrip: function(userId, tripId, next) {
+    User.update({id: userId}, {$set: {trip:tripId}}, function(){
+      next();
+    });
   }
+
 };
