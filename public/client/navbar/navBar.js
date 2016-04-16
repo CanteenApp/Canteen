@@ -11,6 +11,7 @@ angular.module('canteen.navBar', [
 
     $scope.logOut = function () {
       navFactory.endSession();
+      window.location = '/#/landing-page';
     };
   },
 ]);
