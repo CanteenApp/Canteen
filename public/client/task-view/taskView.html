@@ -16,9 +16,11 @@
       <td class="col-sm-3">{{ task.description }}</td>
       <td class="col-sm-1">{{ task.category }}</td>
       <td class="col-sm-4">
-        <span ng-repeat="bullet in task.bullets">
-          {{ bullet }}
-        </span>
+        <ul>
+          <li ng-repeat="bullet in task.bullets">
+            {{ bullet }}
+          </li>
+        </ul>
       </td>
       <td class="col-sm-1">
         <span ng-repeat="key in task.assignedTo">
