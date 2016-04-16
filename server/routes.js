@@ -43,7 +43,7 @@ module.exports = function (app) {
     })
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
-        userController.addTrip(req.session.user.id, data._id, function () {
+        userController.addTrip(req.session.user.id, data._id, function(){
           res.redirect('/#/trip');
         });
       });
@@ -128,5 +128,16 @@ module.exports = function (app) {
           }
         });
       })
+    });
+
+  app.route('/logout')
+    .get(function (req, res) {
+      req.session.destroy(function (err) {
+        if(err) {
+          console.error(err);
+        } else {
+          res.redirect('/');
+        }
+      });
     });
 };

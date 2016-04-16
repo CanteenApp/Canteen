@@ -49,6 +49,10 @@ input.ng-invalid.ng-dirty{
   border-color: #888;
 }
 
+.logout {
+  margin-top: 15px;
+}
+
 .members {
   display: inline;
   list-style: none;

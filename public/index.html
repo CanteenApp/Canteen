@@ -13,6 +13,8 @@
   <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
   <script src="http://maps.google.com/maps/api/js"></script>
   <script src="client/canteen.js"></script>
+  <script src="client/navbar/navBar.js"></script>
+  <script src="client/services/navHelper.js"></script>
   <script src="client/trip-form/tripForm.js"></script>
   <script src="client/services/forms.js"></script>
   <script src="client/services/tripData.js"></script>
@@ -22,27 +24,8 @@
   <script src="client/trip/tripCtrl.js"></script>
   <!-- <script src="dist/canteen.min.js"></script> -->
 </head>
-<body ng-app="canteen" ng-controller="indexControl">
-
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <!-- change sref to overview when created -->
-        <a class="navbar-brand" style="color: #FFF" ui-sref="landingPage"><strong>Canteen</strong></a>
-      </div>
-
-      <ul class="nav navbar-nav">
-        <!-- change sref's to respective states -->
-        <li><a style="color: #FFF" ui-sref="tripForm">Create Trip</a></li>
-        <!-- this sref is a test. change to dropdown of individual lists -->
-        <li><a style="color: #FFF" ui-sref="listView({listName: listName})">Lists</a></li>
-        <li><a style="color: #FFF" ui-sref="#">Members</a></li>
-      </ul>
-
-    </div>
-  </nav>
-
+<body ng-app="canteen">
+  <div ng-include="'../client/navbar/navBar.html'"></div>
   <div ui-view></div>
-
 </body>
 </html>

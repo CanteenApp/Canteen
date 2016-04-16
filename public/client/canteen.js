@@ -1,5 +1,6 @@
 angular.module('canteen', [
   'canteen.landingPage',
+  'canteen.navBar',
   'canteen.tripForm',
   'canteen.taskForm',
   'canteen.tripData',
@@ -42,11 +43,4 @@ angular.module('canteen', [
     //   templateUrl: "client/trip-form/tripFormLists.html",
     //   controller: TBD
     // });
-})
-
-.controller('indexControl', [
-  '$scope',
-  function ($scope) {
-    $scope.listName = ''; // this will have to equal the name of the list that was clicked
-  },
-]);
+});
