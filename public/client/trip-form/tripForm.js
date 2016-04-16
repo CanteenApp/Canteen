@@ -6,7 +6,7 @@ angular.module('canteen.tripForm', [
   '$scope',
   'formFactory',
   '$location',
-  function ($scope, formFactory, $location) {
+  function ($scope, formFactory) {
     $scope.tripForm = {
       tripName: '',
       members: [],

@@ -13,23 +13,26 @@ var tripSchema = new mongoose.Schema({
   },
   tasks:{
     type:Array,
-    default:[{
-      taskName:String,
-      statusCode: {
-        type: Number,
-        default: 0
-      },
-      assignedTo: {
-        type: Array,
-        default: []
-      },
-      description: String,
-      bullets: {
-        type: Array,
-        default: []
-      },
-      category: String
-    }],
+    default: [], // having an object inside of this default
+                 // actually creates an empty object as the first task.
+                 
+    // default:[{
+    //   taskName:String,
+    //   statusCode: {
+    //     type: Number,
+    //     default: 0
+    //   },
+    //   assignedTo: {
+    //     type: Array,
+    //     default: []
+    //   },
+    //   description: String,
+    //   bullets: {
+    //     type: Array,
+    //     default: []
+    //   },
+    //   category: String
+    // }],
   },
 });
 
