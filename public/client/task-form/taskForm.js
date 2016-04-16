@@ -44,7 +44,7 @@ angular.module('canteen.taskForm', [
 			$scope.taskForm = {};
 			$scope.bullets = [];
 			trip.getTrip(function (trip) {
-				$scope.trip = trip;
+				$scope.$parent.trip = trip;
 			})
 		};
 	},
