@@ -21,9 +21,9 @@
         </span>
       </td>
       <td class="col-sm-1">
-        <span ng-repeat="person in task.assignedTo">
+        <span ng-repeat="key in task.assignedTo">
           <svg height="12" width="10">
-            <circle cx="5" cy="6" r="5" fill="{{ color[person] }}" />
+            <circle cx="5" cy="6" r="5" fill="{{ color[key] }}" />
           </svg>
         </span>
       </td>

@@ -42,7 +42,7 @@
 
   <div class="form-group">
     <label for="task-assign">Assign To:</label>
-    <select class="form-control" ng-model="taskForm.assignedTo" ng-options="member for member in trip.members"></select>
+    <select class="form-control" ng-model="taskForm.assignedTo" ng-options="member.email for member in trip.members"></select>
   </div>
 
   <button class="btn btn-primary" type="submit">Create Task!</button>

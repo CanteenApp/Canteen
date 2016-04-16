@@ -14,9 +14,9 @@
           <p><strong>{{ trip.location }}</strong></p>
           <p><strong>Invited:</strong></p>
           <span style="padding-right: 15px" ng-repeat="person in trip.members">
-            {{ person }}
+            {{ person.email }}
             <svg height="12" width="10">
-              <circle cx="5" cy="6" r="5" fill="{{ color[person] = color.colors[$index] }}" />
+              <circle cx="5" cy="6" r="5" fill="{{ color[person.email] = color.colors[$index] }}" />
             </svg>
           </span>
           <p><strong>Dates:</strong><br />
