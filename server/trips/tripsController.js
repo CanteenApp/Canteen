@@ -8,6 +8,13 @@ module.exports = {
       });
   },
 
+  searchTripsForUser: function (email, next) {
+    Trip.findOne({ 'members.email': email })
+    .exec(function (err, trip) {
+      next(err, trip);
+    });
+  },
+
   createTrip: function (req, next) {
     // Add current user to trip members
     req.body.members.push({ email: req.session.user.email });
@@ -25,7 +32,7 @@ module.exports = {
   },
 
   getTrip: function (tripId, next) {
-    Trip.findOne({_id:tripId})
+    Trip.findOne({ _id:tripId })
       .exec(function (err, trip) {
         next(err, trip);
       });
@@ -34,12 +41,12 @@ module.exports = {
   addTask: function (req, next) {
     Trip.findByIdAndUpdate(req.params.tripId, {
       $push: {
-        "tasks": req.body
-      }
+        tasks: req.body,
+      },
     },
     {
       safe: true,
-      upsert: true
+      upsert: true,
     })
       .exec(function (err, trip) {
         next(err, trip);
@@ -49,23 +56,20 @@ module.exports = {
   removeTask: function (req, next) {
     Trip.findByIdAndUpdate(req.params.tripId, {
       $pull: {
-        "tasks": { _id: req.params.taskId }
-      }
+        tasks: { _id: req.params.taskId },
+      },
     })
       .exec(function (err, trip) {
         next(err, trip);
       });
   },
-   
+
   // update any task property
   updateTask: function (req, next) {
     //get tripID from session
     Trip.update(
       { id: req.params.tripId, tasks: { _id: req.body._id } },
       { $set: { 'tasks.$': req.body } }
-    )
-      .exec(function (err, trip) {
-        next(err, trip);
-      });    
+    );
   },
 };
