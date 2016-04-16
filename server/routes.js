@@ -43,8 +43,9 @@ module.exports = function (app) {
     })
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
-        userController.addTrip(req.session.user.id, data._id, function(){
-          res.redirect('/#/trip');
+        req.session.user.trip = data._id;
+        userController.addTrip(req.session.user.id, data._id, function(err, result){
+          sendResponse(res, err, data, 201);
         });
       });
     });

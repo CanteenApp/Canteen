@@ -4,7 +4,9 @@ angular.module('canteen.trip', [])
   'trip',
   'NgMap',
   function ($scope, trip, NgMap) {
-    $scope.trip = trip;
+    trip.getTrip(function(tripData){
+      $scope.trip = tripData;
+    });
     $scope.color = {
       colors: ['red', 'blue', 'purple', 'green', 'orange'],
     };
