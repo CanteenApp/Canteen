@@ -80,8 +80,8 @@ module.exports = function (app) {
 
   /* Task Assignment Routes */
   app.route('/api/assign/:tripId', checkUser)
-    .delete(checkUser, function (req, res) {
-      tripsController.assignTask(req, function (err, data) {
+    .put(checkUser, function (req, res) {
+      tripsController.updateTask(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
