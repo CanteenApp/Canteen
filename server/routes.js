@@ -2,15 +2,15 @@ var tripsController = require('./trips/tripsController');
 var userController = require('./users/userController');
 var Purest = require('purest');
 
-var google = new Purest({provider: 'google'});
+var google = new Purest({ provider: 'google' });
 
 /* Utilities */
 var sendResponse = function (res, err, data, status) {
-    if (err) {
-      res.status(400).send('Error: Record doesn\'t exist');
-    } else {
-      res.status(status).send(data);
-    }
+  if (err) {
+    res.status(400).send('Error: Record doesn\'t exist');
+  } else {
+    res.status(status).send(data);
+  }
 };
 
 // var createSession = function (req, res, newUser) {
@@ -20,7 +20,7 @@ var sendResponse = function (res, err, data, status) {
 //   });
 // };
 
-var isLoggedIn = function (req){
+var isLoggedIn = function (req) {
   return req.session ? !!req.session.user : false;
 };
 
@@ -76,6 +76,7 @@ module.exports = function (app) {
         sendResponse(res, err, data, 200);
       });
     });
+
     //TODO: Add update task route here
 
   /* Task Assignment Routes */
@@ -116,19 +117,32 @@ module.exports = function (app) {
 
   /* OAuth Route */
   app.route('/callback')
-    .get(function(req, res){
+    .get(function (req, res) {
       google.get('https://www.googleapis.com/oauth2/v2/userinfo?alt=json', {
-        auth: { bearer: req.session.grant.response.access_token }
+        auth: { bearer: req.session.grant.response.access_token },
       }, function (err, nope, body) {
         userController.createUser(body, function (err, user) {
           req.session.user = user;
+
           if (!user.trip) {
-            res.redirect('/#/trip-form');
+            // search all trips for user email on member key
+            tripsController.searchTripsForUser(user.email, function (err, trip) {
+              if (trip === null) {
+                // if no trip is found with member redirect to trip creation form
+                res.redirect('/#/trip-form');
+              } else {
+                // set trip on both user table, and on current session
+                userController.addTrip(user.id, trip._id, function () {
+                  req.session.user.trip = trip._id;
+                  res.redirect('/#/trip');
+                });
+              }
+            });
           } else {
             res.redirect('/#/trip');
           }
         });
-      })
+      });
     });
 
   app.route('/logout')
