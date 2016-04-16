@@ -11,8 +11,6 @@ angular.module('canteen.trip', [])
       colors: ['red', 'blue', 'purple', 'green', 'orange'],
     };
 
-    console.log($scope.trip);
-
     // NgMap.getMap().then(function (map) {
     // });
 
