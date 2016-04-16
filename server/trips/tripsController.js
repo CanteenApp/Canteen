@@ -56,33 +56,7 @@ module.exports = {
         next(err, trip);
       });
   },
-
-  // assignTask: function (req, next) {
-  //   Trip.findByIdAndUpdate(req.params.tripId, {
-  //     $push: {
-  //       "assignedTo": req.body
-  //     }
-  //   },
-  //   {
-  //     safe: true,
-  //     upsert: true
-  //   })
-  //     .exec(function (err, trip) {
-  //       next(err, trip);
-  //     });
-  // },
-
-  // unassignTask: function (req, next) {
-  //   Trip.findByIdAndUpdate(req.params.tripId, {
-  //     $pull: {
-  //       "assignedTo": { _id: req.params.memberId }
-  //     }
-  //   })
-  //     .exec(function (err, trip) {
-  //       next(err, trip);
-  //     });
-  // },
-
+   
   // update any task property
   updateTask: function (req, next) {
     //get tripID from session
