@@ -9,8 +9,8 @@ angular.module('canteen.forms', [])
         url: '/api/trips',
         data: tripData,
       })
-      .then(function (resp) {
-        return resp;
+      .then(function () {
+        cb();
       });
     }
 

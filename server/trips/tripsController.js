@@ -23,7 +23,7 @@ module.exports = {
   },
 
   getTrip: function (tripId, next) {
-    Trip.findById(tripId)
+    Trip.findOne({_id:tripId})
       .exec(function (err, trip) {
         next(err, trip);
       });

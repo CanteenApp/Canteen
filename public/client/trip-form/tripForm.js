@@ -5,7 +5,8 @@ angular.module('canteen.tripForm', [
 .controller('tripForm', [
   '$scope',
   'formFactory',
-  function ($scope, formFactory) {
+  '$location',
+  function ($scope, formFactory, $location) {
     $scope.tripForm = {
       tripName: '',
       members: [],
@@ -28,7 +29,9 @@ angular.module('canteen.tripForm', [
 
     $scope.createTrip = function () {
       $scope.tripForm.members = $scope.members;
-      formFactory.submitTrip($scope.tripForm);
+      formFactory.submitTrip($scope.tripForm, function(){
+          window.location='/#/trip';
+      });
     };
   }
 ]);
