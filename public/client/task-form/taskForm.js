@@ -9,7 +9,9 @@ angular.module('canteen.taskForm', [
 	'formFactory',
 	'trip',
 	function ($scope, formFactory, trip) {
-		$scope.taskForm = {};
+		$scope.taskForm = {
+			statusCode: 0
+		};
 		$scope.bullets = [];
 		$scope.task = {
 			bullet: ''
