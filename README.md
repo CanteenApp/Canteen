@@ -1,12 +1,12 @@
 # Project Name
 
 > Canteen
-
+git 
 ## Team
 
   - __Product Owner__: Jak Buttarazzi
   - __Scrum Master__: Rob Bruhn
-  - __Development Team Members__: Ryan Haase, Todd Bontragernode
+  - __Development Team Members__: Ryan Haase, Todd Bontrager
 
 ## Table of Contents
 
