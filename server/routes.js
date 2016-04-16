@@ -44,7 +44,7 @@ module.exports = function (app) {
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
         req.session.user.trip = data._id;
-        userController.addTrip(req.session.user.id, data._id, function(err, result){
+        userController.addTrip(req.session.user.id, data._id, function (err, result) {
           sendResponse(res, err, data, 201);
         });
       });
@@ -64,8 +64,8 @@ module.exports = function (app) {
 
   /* Task Routes */
   app.route('/api/tasks/add/:tripId')
-    .post(checkUser, function (req, res){
-      tripsController.addTask(req, function(err, data) {
+    .post(checkUser, function (req, res) {
+      tripsController.addTask(req, function (err, data) {
         sendResponse(res, err, data, 201);
       });
     });
@@ -118,9 +118,9 @@ module.exports = function (app) {
   app.route('/callback')
     .get(function(req, res){
       google.get('https://www.googleapis.com/oauth2/v2/userinfo?alt=json', {
-        auth: {bearer: req.session.grant.response.access_token}
+        auth: { bearer: req.session.grant.response.access_token }
       }, function (err, nope, body) {
-        userController.createUser(body, function(err, user) {
+        userController.createUser(body, function (err, user) {
           req.session.user = user;
           if (!user.trip) {
             res.redirect('/#/trip-form');
@@ -134,7 +134,7 @@ module.exports = function (app) {
   app.route('/logout')
     .get(function (req, res) {
       req.session.destroy(function (err) {
-        if(err) {
+        if (err) {
           console.error(err);
         } else {
           res.redirect('/');

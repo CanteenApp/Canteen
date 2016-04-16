@@ -17,7 +17,6 @@ angular.module('canteen.tripForm', [
       },
     };
     $scope.members =  [];
-
     $scope.tripMember = {
       email: ''
     };
@@ -30,7 +29,7 @@ angular.module('canteen.tripForm', [
     $scope.createTrip = function () {
       $scope.tripForm.members = $scope.members;
       formFactory.submitTrip($scope.tripForm, function(){
-          window.location='/#/trip';
+        window.location = '/#/trip';
       });
     };
   }

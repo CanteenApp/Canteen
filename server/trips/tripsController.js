@@ -9,6 +9,8 @@ module.exports = {
   },
 
   createTrip: function (req, next) {
+    // Add current user to trip members
+    req.body.members.push({ email: req.session.user.email });
     Trip.create(req.body, function (err, trip) {
       next(err, trip);
     });
