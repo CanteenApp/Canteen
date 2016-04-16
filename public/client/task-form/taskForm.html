@@ -9,14 +9,16 @@
   <!-- Add bullets -->
   <label for="task-bullets">Bullets:</label>
   <div class="input-group">
-    <input class="form-control" type="text" placeholder="Enter bullet description" ng-model="taskBullet"/>
+    <input class="form-control" type="text" placeholder="Enter bullet description" ng-model="task.bullet"/>
     <span class="input-group-btn">
-      <button class="btn btn-default" type="button" ng-click="addBullet(taskBullet)">Add</button>
+      <button class="btn btn-default" type="button" ng-click="addBullet()">Add</button>
     </span>
   </div>
   <!-- Display bullets -->
   <div ng-repeat="bullet in bullets">
-    <h4> {{ bullet }} </h4>
+    <ul>
+      <li> {{ bullet }} </li>
+    </ul>
   </div>
 
   <!-- category

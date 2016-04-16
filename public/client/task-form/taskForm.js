@@ -1,21 +1,27 @@
 angular.module('canteen.taskForm', [
 	'canteen.forms',
+	'canteen.tripData',
 ])
 
 //grab tripId from parent controller
 .controller('taskForm', [
 	'$scope',
 	'formFactory',
-	function ($scope, formFactory) {
+	'trip',
+	function ($scope, formFactory, trip) {
 		$scope.taskForm = {};
 		$scope.bullets = [];
+		$scope.task = {
+			bullet: ''
+		}
 
 		//TODO: grab trip id from trip
 		// $scope.tripId = number;
 		// $scope.taskBullet = '';
 
-		$scope.addBullet = function (bullet) {
-			$scope.bullets.push(bullet);
+		$scope.addBullet = function () {
+			$scope.bullets.push($scope.task.bullet);
+			$scope.task = {};
 			// $scope.taskBullet = '';
 			// taskBullet.$setPristine()
 			// taskBullet.$setUntouched();
@@ -36,6 +42,10 @@ angular.module('canteen.taskForm', [
 			console.log($scope.taskForm);
 			formFactory.submitTask($scope.taskForm, $scope.trip._id);
 			$scope.taskForm = {};
+			$scope.bullets = [];
+			trip.getTrip(function (trip) {
+				$scope.trip = trip;
+			})
 		};
 	},
 ]);
