@@ -32,7 +32,6 @@ module.exports = {
   },
 
   addTask: function (req, next) {
-    console.log('req.params:' + req.params);
     Trip.findByIdAndUpdate(req.params.tripId, {
       $push: {
         "tasks": req.body
@@ -95,5 +94,4 @@ module.exports = {
         next(err, trip);
       });    
   },
-
 };
