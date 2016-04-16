@@ -32,6 +32,7 @@ module.exports = {
   },
 
   addTask: function (req, next) {
+    console.log('req.params:' + req.params);
     Trip.findByIdAndUpdate(req.params.tripId, {
       $push: {
         "tasks": req.body
@@ -57,33 +58,42 @@ module.exports = {
       });
   },
 
-  //TODO: Create ability to update tasks
-  // updateTask: function (req, next) {
+  // assignTask: function (req, next) {
+  //   Trip.findByIdAndUpdate(req.params.tripId, {
+  //     $push: {
+  //       "assignedTo": req.body
+  //     }
+  //   },
+  //   {
+  //     safe: true,
+  //     upsert: true
+  //   })
+  //     .exec(function (err, trip) {
+  //       next(err, trip);
+  //     });
   // },
 
-  assignTask: function (req, next) {
-    Trip.findByIdAndUpdate(req.params.tripId, {
-      $push: {
-        "assignedTo": req.body
-      }
-    },
-    {
-      safe: true,
-      upsert: true
-    })
+  // unassignTask: function (req, next) {
+  //   Trip.findByIdAndUpdate(req.params.tripId, {
+  //     $pull: {
+  //       "assignedTo": { _id: req.params.memberId }
+  //     }
+  //   })
+  //     .exec(function (err, trip) {
+  //       next(err, trip);
+  //     });
+  // },
+
+  // update any task property
+  updateTask: function (req, next) {
+    //get tripID from session
+    Trip.update(
+      { id: req.params.tripId, tasks: { _id: req.body._id } },
+      { $set: { 'tasks.$': req.body } }
+    )
       .exec(function (err, trip) {
         next(err, trip);
-      });
+      });    
   },
 
-  unassignTask: function (req, next) {
-    Trip.findByIdAndUpdate(req.params.tripId, {
-      $pull: {
-        "assignedTo": { _id: req.params.memberId }
-      }
-    })
-      .exec(function (err, trip) {
-        next(err, trip);
-      });
-  }
 };
