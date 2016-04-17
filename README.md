@@ -1,7 +1,7 @@
 # Project Name
 
 > Canteen
-git 
+
 ## Team
 
   - __Product Owner__: Jak Buttarazzi
