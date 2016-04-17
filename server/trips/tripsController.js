@@ -73,9 +73,9 @@ module.exports = {
   },
 
   // update task statusCode
-  updateStatus: function (task, next) {
+  updateStatus: function (tripId, task, next) {
     Trip.update(
-      { "tasks.taskName": task.taskName },
+      { id: tripId, "tasks.taskName": task.taskName },
       { $set: { "tasks.$.statusCode": task.statusCode } }
     )
     .exec(function (err, result) {

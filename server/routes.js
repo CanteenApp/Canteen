@@ -79,7 +79,7 @@ module.exports = function (app) {
   /* Task Update Routes */
   app.route('/api/updateStatus', checkUser)
     .put(checkUser, function (req, res) {
-      tripsController.updateStatus(req.body, function (err, data) {
+      tripsController.updateStatus(req.session.user.id, req.body, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
