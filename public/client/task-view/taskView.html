@@ -29,8 +29,8 @@
           </svg>
         </span>
       </td>
-      <td ng-click="updateStatus()" class="col-sm-1 glyphicon glyphicon glyphicon-grain pointer" ng-if="task.statusCode === 0" title="Update Status"></td>
-      <td class="col-sm-1 glyphicon glyphicon-tree-conifer" ng-if="task.statusCode === 1"></td>
+      <td ng-click="updateStatus(task)" class="col-sm-1 glyphicon glyphicon glyphicon-grain pointer" ng-if="task.statusCode === 0" title="Update Status"></td>
+      <td ng-click="updateStatus(task)" class="col-sm-1 glyphicon glyphicon-tree-conifer" ng-if="task.statusCode === 1"></td>
     </tr>
   </tbody>
 </table>

@@ -72,12 +72,14 @@ module.exports = {
       });
   },
 
-  // update any task property
-  updateTask: function (req, next) {
-    //get tripID from session
+  // update task statusCode
+  updateStatus: function (task, next) {
     Trip.update(
-      { id: req.params.tripId, tasks: { _id: req.body._id } },
-      { $set: { 'tasks.$': req.body } }
-    );
+      { "tasks.taskName": task.taskName },
+      { $set: { "tasks.$.statusCode": task.statusCode } }
+    )
+    .exec(function (err, result) {
+      next(err, result);
+    });
   },
 };
