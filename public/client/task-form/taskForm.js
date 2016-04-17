@@ -43,7 +43,9 @@ angular.module('canteen.taskForm', [
       $scope.taskForm.bullets = $scope.bullets;
       console.log($scope.taskForm);
       formFactory.submitTask($scope.taskForm, $scope.trip._id);
-      $scope.taskForm = {};
+      $scope.taskForm = {
+        statusCode: 0
+      };
       $scope.bullets = [];
       trip.getTrip(function (trip) {
         $scope.$parent.trip = trip;

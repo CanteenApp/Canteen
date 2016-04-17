@@ -76,10 +76,10 @@ module.exports = function (app) {
 
   //TODO: Add update task route here
 
-  /* Task Assignment Routes */
-  app.route('/api/assign/:tripId', checkUser)
+  /* Task Update Routes */
+  app.route('/api/updateStatus', checkUser)
     .put(checkUser, function (req, res) {
-      tripsController.updateTask(req, function (err, data) {
+      tripsController.updateStatus(req.session.user.id, req.body, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
