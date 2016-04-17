@@ -14,11 +14,12 @@ angular.module('canteen.tripData', [])
         console.error(err);
       });
     }
-    function updateStatus(task, cb) {
+
+    function updateStatus(trip, cb) {
       return $http({
         method: 'PUT',
-        url: '/api/updateStatus',
-        data: task,
+        url: '/api/trip/',
+        data: trip,
       })
       .then(function (resp) {
         cb(resp.data);
@@ -27,6 +28,7 @@ angular.module('canteen.tripData', [])
         console.error(err);
       });
     }
+
     return {
       getTrip: getTrip,
       updateStatus: updateStatus,

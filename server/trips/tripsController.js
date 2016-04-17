@@ -30,7 +30,7 @@ module.exports = {
   // update trip
   updateTrip: function (req, next) {
     var options = { new: true };
-    Trip.findByIdAndUpdate(req.params.tripId, req.body, options)
+    Trip.findByIdAndUpdate(req.body._id, req.body, options)
       .exec(function (err, trip) {
         next(err, trip);
       });
@@ -55,9 +55,9 @@ module.exports = {
       safe: true,
       upsert: true,
     })
-      .exec(function (err, trip) {
-        next(err, trip);
-      });
+    .exec(function (err, trip) {
+      next(err, trip);
+    });
   },
 
   // delete a trip
@@ -73,13 +73,13 @@ module.exports = {
   },
 
   // update task statusCode
-  updateStatus: function (tripId, task, next) {
-    Trip.update(
-      { id: tripId, "tasks.taskName": task.taskName },
-      { $set: { "tasks.$.statusCode": task.statusCode } }
-    )
-    .exec(function (err, result) {
-      next(err, result);
-    });
-  },
+  // updateStatus: function (tripId, task, next) {
+  //   Trip.update(
+  //     { id: tripId, 'tasks.taskName': task.taskName },
+  //     { $set: { 'tasks.$.statusCode': task.statusCode } }
+  //   )
+  //   .exec(function (err, result) {
+  //     next(err, result);
+  //   });
+  // },
 };
