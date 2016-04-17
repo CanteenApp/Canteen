@@ -13,9 +13,12 @@ var tripSchema = new mongoose.Schema({
   },
   tasks:{
     type:Array,
-    default: [], // having an object inside of this default
-                 // actually creates an empty object as the first task.
-                 
+    default: [],
+
+    // TODO: Remove comments here:
+    // having an object inside of this default
+    // actually creates an empty object as the first task.
+
     // default:[{
     //   taskName:String,
     //   statusCode: {
