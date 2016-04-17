@@ -29,7 +29,7 @@ angular.module('canteen.tripData', [])
     }
     return {
       getTrip: getTrip,
-      updateTask: updateTask,
+      updateStatus: updateStatus,
     };
   },
 ]);
