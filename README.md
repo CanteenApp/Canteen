@@ -1,6 +1,6 @@
 # Project Name
 
-### Canteen
+### [Canteen](http://canteenapp.herokuapp.com)
 
 ## Team
 
@@ -20,7 +20,7 @@
 
 ## Usage
 
-> Canteen was developed to plan outdoor adventures with friends easily in one central place online.
+[Canteen](http://canteenapp.herokuapp.com) was developed to plan outdoor adventures with friends easily in one central place online.
 
 ## Requirements
 
