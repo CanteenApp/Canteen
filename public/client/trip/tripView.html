@@ -1,31 +1,45 @@
 <div class="container">
   <div class="table-margin">
     <div class="panel panel-default">
+
       <div class="panel-heading">
-        <h3 class="panel-title">{{ trip.tripName }}</h3>
+        <h3 class="panel-title"> {{ trip.tripName }} </h3>
       </div>
+
       <div class="panel-body">
+
+        <!-- Left column -->
         <div class="col-md-6">
           <div map-lazy-load="https://maps.google.com/maps/api/js">
             <ng-map center="{{ trip.location }}" zoom="10" map-type-id="MapTypeId.HYBRID">
               <marker position="{{ trip.location }}"></marker>
             </ng-map>
           </div>
+
           <p><strong>{{ trip.location }}</strong></p>
-          <p><strong>Invited:</strong></p>
-          <span style="padding-right: 15px" ng-repeat="person in trip.members">
-            {{ person.email }}
-            <svg height="12" width="10">
-              <circle cx="5" cy="6" r="5" fill="{{ color[person.email] = color.colors[$index] }}" />
-            </svg>
-          </span>
-          <p><strong>Dates:</strong><br />
+          <p><strong>Invited:</strong>
+            <br>
+            <span style="padding-right: 10px" ng-repeat="person in trip.members">
+              {{ person.email }}
+              <svg height="10" width="10">
+                <circle cx="5" cy="5" r="5" fill="{{ color[person.email] = color.colors[$index] }}" />
+              </svg>
+            </span>
+          </p>
+          <p><strong>Dates:</strong>
+            <br>
             {{ dates.start }} &nbsp;-&nbsp; {{ dates.end }}
           </p>
         </div>
+
+        <!-- Right column -->
         <div class="col-md-6" ng-controller="taskForm" ng-include="'../client/task-form/taskForm.html'"></div>
-      </div>
-      <div class="table-responsive" ng-controller="taskView" ng-include="'../client/task-view/taskView.html'">
+        
+      </div> <!-- /panel-body -->
+
+      <!-- Bottom Table -->
+      <div class="table-responsive" ng-controller="taskView" ng-include="'../client/task-view/taskView.html'"></div>
+
     </div>
   </div>
 </div>
