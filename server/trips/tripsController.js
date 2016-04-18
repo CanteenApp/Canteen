@@ -2,8 +2,7 @@ var Trip = require('./tripModel');
 
 module.exports = {
 
-  // search current trip table for
-  // email address on members object
+  // search current trip for matching email in members array
   searchTripsForUser: function (email, next) {
     Trip.findOne({ 'members.email': email })
     .exec(function (err, trip) {
@@ -37,7 +36,7 @@ module.exports = {
       });
   },
 
-  // create a task on trips object
+  // add a task to tasks array on trip
   addTask: function (req, next) {
     Trip.findByIdAndUpdate(req.params.tripId, {
       $push: {

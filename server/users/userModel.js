@@ -1,7 +1,7 @@
+/* User Documents Schema */
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 
-// TODO: add password to user
+// TODO: add local authentication
 // currently using only google for auth
 var userSchema = mongoose.Schema({
   id: String,

@@ -2,6 +2,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var Grant = require('grant-express');
 
+/* New Grant For Google Authentication */
 var grant = new Grant({
   server: {
     protocol: 'http',
@@ -10,7 +11,6 @@ var grant = new Grant({
     transport: 'session',
     state: true,
   },
-
   google: {
     key: process.env.GOOGLE_CID || require('../.config/.secrets.json')['google']['clientId'],
     secret: process.env.GOOGLE_CSECRET || require('../.config/.secrets.json')['google']['clientSecret'],
@@ -26,6 +26,7 @@ var grant = new Grant({
 module.exports = function (app, express) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
+  // specify session secret for new sessions
   app.use(session({
     secret: process.env.SESSION_SECRET || require('../.config/.secrets.json')['session']['secret']
   }));

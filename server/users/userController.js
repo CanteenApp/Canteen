@@ -1,21 +1,21 @@
 var User = require('./userModel');
-// var bcrypt = require('bcrypt');
 
 module.exports = {
   createUser: function (body, next) {
-    userData = {
+    var userData = {
+      // NOTE: this sets a unique 'id' property with google id
+      // (Not '_id' which Mongo sets automatically)
       id: body.id,
       email: body.email,
       given_name: body.given_name,
       family_name: body.family_name,
     };
 
-    // check for user record or create one
+    // find or create user
     User.findOne({ id: body.id })
     .exec(function (err, user) {
-      console.log(user);
       if (!user) {
-        User.create(userData, function (err, result) {
+        User.create(userData, function (err) {
           next(err, userData);
         });
       } else {
@@ -24,7 +24,7 @@ module.exports = {
     });
   },
 
-  // add users trip._id to record
+  // add users trip._id to record for later lookup
   // this method is used in a couple methods on routes.js
   addTrip: function (userId, tripId, next) {
     User.update({ id: userId }, { $set: { trip:tripId } }, function () {
