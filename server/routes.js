@@ -4,7 +4,8 @@ var Purest = require('purest');
 
 var google = new Purest({ provider: 'google' });
 
-// Utilities
+/* Utilities */
+// handle errors and send response
 var sendResponse = function (res, err, data, status) {
   if (err) {
     res.status(400).send('Error: Record doesn\'t exist');
@@ -54,30 +55,25 @@ module.exports = function (app) {
       });
     });
 
-  app.route('/api/tasks/:tripId/:taskId', checkUser)
-    .delete(checkUser, function (req, res) {
-      tripsController.removeTask(req, function (err, data) {
-        sendResponse(res, err, data, 200);
-      });
-    });
-
   /* OAuth Route */
+  // parses out query data from google using Purest (see above)
   app.route('/callback')
     .get(function (req, res) {
       google.get('https://www.googleapis.com/oauth2/v2/userinfo?alt=json', {
         auth: { bearer: req.session.grant.response.access_token },
       }, function (err, nope, body) {
+        //find or creates the user
         userController.createUser(body, function (err, user) {
+          // set session user to returned record
           req.session.user = user;
-
           if (!user.trip) {
-            // search all trips for user email on member key
+            // search all trips for user email in members
             tripsController.searchTripsForUser(user.email, function (err, trip) {
               if (trip === null) {
                 // if no trip is found with member redirect to trip creation form
                 res.redirect('/#/trip-form');
               } else {
-                // set trip on both user table, and on current session
+                // set trip on both user, and on current session user object
                 userController.addTrip(user.id, trip._id, function () {
                   req.session.user.trip = trip._id;
                   res.redirect('/#/trip');
@@ -90,8 +86,8 @@ module.exports = function (app) {
         });
       });
     });
-
-  app.route('/logout')
+    /* Logout Route */
+    app.route('/logout')
     .get(function (req, res) {
       req.session.destroy(function (err) {
         if (err) {
