@@ -28,7 +28,8 @@ angular.module('canteen.tripForm', [
 
     $scope.createTrip = function () {
       $scope.tripForm.members = $scope.members;
-      formFactory.submitTrip($scope.tripForm, function(){
+      formFactory.submitTrip($scope.tripForm)
+      .then(function () {
         window.location = '/#/trip';
       });
     };
