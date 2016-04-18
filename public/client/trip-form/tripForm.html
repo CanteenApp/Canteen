@@ -1,33 +1,34 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h1>Plan your trip!</h1>
 
       <br>
 
-      <form class="form-group" name="tripForm" ng-submit="tripForm.$valid && createTrip()" novalidate>
+      <form name="tripForm" ng-submit="createTrip()" novalidate>
         <label for="trip-name">Trip Name:</label>
-        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName" required></input>
+        <input class="form-control" id="trip-name" type="text" placeholder="My Excellent Adventure" ng-model="tripForm.tripName" required>
 
         <br>
 
         <label for="trip-location">Trip Destination:</label>
-        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location" required></input>
+        <input class="form-control" id="trip-location" type="text" placeholder="Blackrock Mountain, NC" ng-model="tripForm.location" required>
 
         <br>
 
         <label for="trip-date">Trip Dates:</label>
         <div class="input-group" id="trip-date">
-          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start" required></input>
+          <input class="form-control" type="date" placeholder="Start Date" ng-model="tripForm.dates.start" required>
           <span class="input-group-addon"> - </span>
-          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end" required></input>
+          <input class="form-control" type="date" placeholder="End Date" ng-model="tripForm.dates.end" required>
         </div>
 
         <br>
 
         <label for="trip-invite">Trip Members:</label>
         <div class="input-group">
-          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email"></input>
+          <input class="form-control" type="email" placeholder="example@gmail.com" ng-model="tripMember.email">
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addMember()">Add</button>
           </span>
@@ -38,10 +39,10 @@
 
         <br>
 
-        <button class="btn btn-primary" type="submit"> Create Trip! </button>
+        <button class="btn btn-primary" type="submit" ng-disabled="tripForm.$invalid"> Create Trip! </button>
       </form>
     </div>
-  </div>
+  </div> <!-- /row -->
 
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
@@ -50,4 +51,5 @@
       </div>
     </div>
   </div>
+
 </div>

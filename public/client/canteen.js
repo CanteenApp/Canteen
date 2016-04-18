@@ -1,21 +1,24 @@
 angular.module('canteen', [
   'canteen.landingPage',
-  'canteen.navBar',
-  'canteen.tripForm',
-  'canteen.taskForm',
+  'canteen.forms',
+  'canteen.navHelper',
   'canteen.tripData',
+  'canteen.navBar',
+  'canteen.taskForm',
   'canteen.taskView',
   'canteen.trip',
+  'canteen.tripForm',
   'ngMap',
   'ui.bootstrap',
   'ui.router',
 ])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/landing-page');
   $stateProvider
     .state('landingPage', {
       url: '/landing-page',
-      templateUrl: 'client/landingPage/landingPage.html',
+      templateUrl: 'client/landing-page/landingPage.html',
       controller: 'landingPage',
     })
     .state('tripForm', {

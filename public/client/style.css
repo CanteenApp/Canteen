@@ -7,10 +7,14 @@ body {
   }
 }
 
-input.ng-invalid.ng-dirty{
+input.ng-invalid.ng-dirty {
   border-color: red;
 }
 
+
+/*
+Landing Page
+*/
 .landing {
   position: absolute;
   top: 50px;
@@ -44,6 +48,17 @@ input.ng-invalid.ng-dirty{
   background-image: url("../img/buttons/google-signin/btn_google_signin_light_pressed_web.png");
 }
 
+.hr-banner {
+  position: relative;
+  float: right;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+/*
+Navbar
+*/
 .navbar {
   background-color: #215CD4;
   border-color: #888;
@@ -53,26 +68,9 @@ input.ng-invalid.ng-dirty{
   margin-top: 15px;
 }
 
-.members {
-  display: inline;
-  list-style: none;
-  list-style-type: none;
-  padding-left: 0;
-}
-.members li {
-  display: inline;
-  float: left;
-  margin-bottom: 10px;
-}
-
-.members li + li:before {
-  content: ",";
-}
-
-.invited p {
-  margin-bottom: 0px;
-}
-
+/*
+Trip Overview
+*/
 .panel-title {
   font-size: 20px;
 }

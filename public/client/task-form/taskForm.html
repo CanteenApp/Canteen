@@ -1,42 +1,37 @@
 <h4>Create a task</h4>
+
 <form class="form-group" ng-submit="createTask()">
   <label for="task-name">Task Name:</label>
-  <input class="form-control" id="task-name" type="text" placeholder="Enter a task name" ng-model="taskForm.taskName" />
+  <input class="form-control" id="task-name" type="text" placeholder="Enter the task name" ng-model="taskForm.taskName">
 
   <label for="task-description">Task Description:</label>
-  <input class="form-control" id="task-description" type="text" placeholder="Enter the task description" ng-model="taskForm.description"/>
+  <input class="form-control" id="task-description" type="text" placeholder="Enter the task description" ng-model="taskForm.description">
 
-  <!-- Add bullets -->
   <label for="task-bullets">Bullets:</label>
   <div class="input-group">
-    <input class="form-control" type="text" placeholder="Enter bullet description" ng-model="task.bullet"/>
+    <input class="form-control" type="text" placeholder="Enter the bullet description" ng-model="task.bullet">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button" ng-click="addBullet()">Add</button>
     </span>
   </div>
-  <!-- Display bullets -->
+
   <div ng-repeat="bullet in bullets">
     <ul>
       <li> {{ bullet }} </li>
     </ul>
   </div>
 
-  <!-- category
-  make a get request to pull category into dropdown
-  Need a get method on the forms.js
-  http://stackoverflow.com/questions/15688313/how-can-i-populate-a-select-dropdown-list-from-a-json-feed-with-angularjs
-  https://docs.angularjs.org/api/ng/directive/ngOptions-->
-  <label for="task-category">Category: </label>
-  <input class="form-control" type="text" placeholder="Category" list="category" name="category" ng-model="taskForm.category">
+  <label for="task-category">Category:</label>
+  <input class="form-control" type="text" list="category" name="category" placeholder="Category" ng-model="taskForm.category">
     <datalist id="category">
-      <option value="Activites" />
-      <option value="Clothing" />
-      <option value="Cooking Supplies" />
-      <option value="Food" />
-      <option value="Gear" />
-      <option value="Lodging" />
-      <option value="Toiletries" />
-      <option value="Transportation" />
+      <option value="Activites">
+      <option value="Clothing">
+      <option value="Cooking Supplies">
+      <option value="Food">
+      <option value="Gear">
+      <option value="Lodging">
+      <option value="Toiletries">
+      <option value="Transportation">
     </datalist>
   </input>
 

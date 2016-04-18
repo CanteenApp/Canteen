@@ -1,10 +1,12 @@
 angular.module('canteen.trip', [])
+
 .controller('tripCtrl', [
   '$scope',
   'trip',
   'NgMap',
   function ($scope, trip, NgMap) {
-    trip.getTrip(function (tripData) {
+    trip.getTrip()
+    .then(function (tripData) {
       $scope.trip = tripData;
       $scope.dates = {
         start: moment($scope.trip.dates.start).format('MMM Do, YYYY'),
@@ -15,10 +17,5 @@ angular.module('canteen.trip', [])
     $scope.color = {
       colors: ['red', 'blue', 'purple', 'green', 'orange'],
     };
-
-    // NgMap.getMap().then(function (map) {
-    // });
-
-    // add call to get trip once factory method is available
   },
 ]);

@@ -1,6 +1,4 @@
-angular.module('canteen.navBar', [
-  'canteen.navHelper',
-])
+angular.module('canteen.navBar', [])
 
 .controller('navBar', [
   '$scope',
@@ -10,10 +8,10 @@ angular.module('canteen.navBar', [
     $scope.location = $location.path();
 
     $scope.logOut = function () {
+      // After session has been destroyed, redirect to landing page
+      // and refresh page to ensure 'logout' option in navbar disappears
       navFactory.endSession();
-      //after session has been destroyed, redirect to landing page
       $location.path('/#/landing-page');
-      //refresh landing page to ensure 'logout' option in navbar disappears
       window.location.reload(true);
     };
   },

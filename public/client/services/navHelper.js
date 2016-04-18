@@ -9,13 +9,14 @@ angular.module('canteen.navHelper', [])
         url: '/logout'
       })
       .then(function (resp) {
-        return resp;
+        return resp.data;
       })
       .catch(function (err) {
         console.error(err);
       });
     }
 
+    // Factory methods return promises
     return {
       endSession: endSession,
     };
