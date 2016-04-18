@@ -1,6 +1,4 @@
-angular.module('canteen.navBar', [
-  'canteen.navHelper',
-])
+angular.module('canteen.navBar', [])
 
 .controller('navBar', [
   '$scope',

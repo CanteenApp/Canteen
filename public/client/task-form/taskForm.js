@@ -1,7 +1,4 @@
-angular.module('canteen.taskForm', [
-  'canteen.forms',
-  'canteen.tripData',
-])
+angular.module('canteen.taskForm', [])
 
 //grab tripId from parent controller
 .controller('taskForm', [

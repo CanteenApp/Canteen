@@ -1,6 +1,4 @@
-angular.module('canteen.tripForm', [
- 'canteen.forms',
-])
+angular.module('canteen.tripForm', [])
 
 .controller('tripForm', [
   '$scope',

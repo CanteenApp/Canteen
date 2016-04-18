@@ -1,4 +1,5 @@
 angular.module('canteen.trip', [])
+
 .controller('tripCtrl', [
   '$scope',
   'trip',
