@@ -17,36 +17,22 @@ angular.module('canteen.taskForm', [
       bullet: ''
     }
 
-    //TODO: grab trip id from trip
-    // $scope.tripId = number;
-    // $scope.taskBullet = '';
-
     $scope.addBullet = function () {
+      // Add bullet and reset field
       $scope.bullets.push($scope.task.bullet);
       $scope.task = {};
-      // $scope.taskBullet = '';
-      // taskBullet.$setPristine()
-      // taskBullet.$setUntouched();
     };
 
-    // $scope.addCategory = function () {
-    //   $scope.taskForm.category = $scope.chooseCategory;
-    //   $scope.chooseCategory = '';
-    // };
-
-    // $scope.addAssignedTo = function () {
-    //   $scope.taskForm.assignedTo.push($scope.assignee);
-    //   $scope.assignee = '';
-    // }
-
     $scope.createTask = function () {
+      // Submit task, reset fields, and refresh trip
       $scope.taskForm.bullets = $scope.bullets;
-      console.log($scope.taskForm);
       formFactory.submitTask($scope.taskForm, $scope.trip._id);
+
       $scope.taskForm = {
         statusCode: 0
       };
       $scope.bullets = [];
+
       trip.getTrip()
       .then(function (trip) {
         $scope.$parent.trip = trip;
