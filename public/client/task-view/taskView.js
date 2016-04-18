@@ -5,11 +5,10 @@ angular.module('canteen.taskView', [])
   'trip',
   function ($scope, trip) {
     $scope.updateStatus = function (task) {
+      // Toggles status code between 0 and 1
+      // and updates in db
       task.statusCode = task.statusCode ? 0 : 1;
-      trip.updateStatus($scope.trip)
-      .then(function (result) {
-        console.log('Status Updated!');
-      });
+      trip.updateStatus($scope.trip);
     };
   },
 ]);
