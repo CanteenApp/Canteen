@@ -47,7 +47,8 @@ angular.module('canteen.taskForm', [
         statusCode: 0
       };
       $scope.bullets = [];
-      trip.getTrip(function (trip) {
+      trip.getTrip()
+      .then(function (trip) {
         $scope.$parent.trip = trip;
       })
     };

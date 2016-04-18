@@ -4,7 +4,8 @@ angular.module('canteen.trip', [])
   'trip',
   'NgMap',
   function ($scope, trip, NgMap) {
-    trip.getTrip(function (tripData) {
+    trip.getTrip()
+    .then(function (tripData) {
       $scope.trip = tripData;
       $scope.dates = {
         start: moment($scope.trip.dates.start).format('MMM Do, YYYY'),

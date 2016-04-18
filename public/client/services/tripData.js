@@ -4,7 +4,7 @@ angular.module('canteen.tripData', [])
   '$http',
   '$location',
   function ($http, $location) {
-    function getTrip(cb) {
+    function getTrip() {
       return $http({
         method: 'GET',
         url: '/api/trip',
@@ -14,27 +14,28 @@ angular.module('canteen.tripData', [])
           $location.path('/#/landing-page');
           window.location.reload(true);
         }
-        cb(resp.data);
-      })
-      .catch(function (err) {
-        cb(err);
-      });
-    }
-
-    function updateStatus(trip, cb) {
-      return $http({
-        method: 'PUT',
-        url: '/api/trip/',
-        data: trip,
-      })
-      .then(function (resp) {
-        cb(resp.data);
+        return resp.data;
       })
       .catch(function (err) {
         console.error(err);
       });
     }
 
+    function updateStatus(trip) {
+      return $http({
+        method: 'PUT',
+        url: '/api/trip/',
+        data: trip,
+      })
+      .then(function (resp) {
+        return resp.data;
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
+    }
+
+    // Factory methods use promises
     return {
       getTrip: getTrip,
       updateStatus: updateStatus,
