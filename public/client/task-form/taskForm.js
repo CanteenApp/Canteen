@@ -24,7 +24,6 @@ angular.module('canteen.taskForm', [])
       // Submit task, reset fields, and refresh trip
       $scope.taskForm.bullets = $scope.bullets;
       formFactory.submitTask($scope.taskForm, $scope.trip._id);
-
       $scope.taskForm = {
         statusCode: 0
       };

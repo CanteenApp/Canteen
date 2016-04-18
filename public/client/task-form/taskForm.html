@@ -1,8 +1,8 @@
 <h4>Create a task</h4>
 
-<form class="form-group" ng-submit="createTask()">
+<form class="form-group" name="submitForm" ng-submit="createTask()" novalidate>
   <label for="task-name">Task Name:</label>
-  <input class="form-control" id="task-name" type="text" placeholder="Enter the task name" ng-model="taskForm.taskName">
+  <input class="form-control" id="task-name" type="text" placeholder="Enter the task name" ng-model="taskForm.taskName" required>
 
   <label for="task-description">Task Description:</label>
   <input class="form-control" id="task-description" type="text" placeholder="Enter the task description" ng-model="taskForm.description">
@@ -22,11 +22,12 @@
   </div>
 
   <label for="task-category">Category:</label>
-  <input class="form-control" type="text" list="category" name="category" placeholder="Category" ng-model="taskForm.category">
+  <input class="form-control" type="text" list="category" name="category" placeholder="Category" ng-model="taskForm.category" required>
     <datalist id="category">
       <option value="Activites">
       <option value="Clothing">
       <option value="Cooking Supplies">
+      <option value="Essentials"
       <option value="Food">
       <option value="Gear">
       <option value="Lodging">
@@ -40,5 +41,5 @@
     <select class="form-control" ng-model="taskForm.assignedTo" ng-options="member.email for member in trip.members"></select>
   </div>
 
-  <button class="btn btn-primary" type="submit">Create Task!</button>
+  <button class="btn btn-primary" type="submit" ng-disabled="submitForm.$invalid">Create Task!</button>
 </form>
