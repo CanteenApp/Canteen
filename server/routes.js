@@ -13,16 +13,13 @@ var sendResponse = function (res, err, data, status) {
   }
 };
 
-var isLoggedIn = function (req) {
-  return req.session ? !!req.session.user : false;
-};
-
 // check current session
 var checkUser = function (req, res, next) {
-  if (isLoggedIn(req)) {
+  if (req.session.user) {
     next();
   } else {
-    res.redirect('/');
+    console.log("no user");
+    res.send({_id: false});
   }
 };
 
