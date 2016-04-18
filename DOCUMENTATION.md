@@ -4,6 +4,7 @@ If you want the nitty gritty about the Canteen App, you've come to the right pla
 
 ## Table of Contents
 1. [Setup](#setup)
+1. [Testing](#testing)
 1. [Front-End](#front-end)
 1. [Back-End](#back-end)
 1. [Deployment](#deployment)
@@ -26,6 +27,16 @@ grunt start-dev
 ```
 
 The Grunt config code is stored in the [Gruntfile.js](Gruntfile.js) file. There is very little customization in this file and most of it can be understood using the official [Grunt](http://gruntjs.com) documentation and [this guide](https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt).
+
+## Testing
+
+Testing is achieved using Supertest, Chai, and Mocha. The tests check the server routes and trips controller methods.
+
+To run the tests locally use the command:
+
+```
+grunt test
+```
 
 
 ## Front-End
@@ -52,8 +63,4 @@ Styling is achieved using Bootstrap and the `style.css` file.
 
 ## Deployment
 
-Once a pull request has been merged, [Heroku](http://canteenapp.herokuapp.com) will be automatically updated and the server restarted. Changes should take affect within one minute. This makes continuous deployment a breeze, but be careful what you merge to the master branch.
-
-
-
-
+Once a pull request has been merged, [Heroku](http://canteenapp.herokuapp.com) will be automatically updated and the server restarted. Changes should take affect within one minute. This makes continuous deployment a breeze, but be careful what you merge to the master branch since Heroku will immediately merge those changes into the live server that deploys the app online.
