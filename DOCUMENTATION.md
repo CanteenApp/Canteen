@@ -10,6 +10,7 @@ If you want the nitty gritty about the Canteen App, you've come to the right pla
 	1. [Database](#database)
 	1. [Middleware](#middleware)
 	1. [Authentication](#authentication)
+	1. [Server Routes](#serverroutes)
 1. [Deployment](#deployment)
 
 
@@ -66,15 +67,15 @@ Styling is achieved using Bootstrap and the `style.css` file.
 
 ### Database
 
-MongoDB is used as the database for this app. The Mongoose ORM is also used periodically to interface with Mongo.
+MongoDB is used as the database for this app. The Mongoose ODM is also used periodically to interface with Mongo.
 
 The configuration can be found in the `server/db/config.js` file.
 
-Two schemas are used: Trips and Users. Both are found in their respective folders.
+Two schemas are used: `Trip` and `User`. Both are found in their respective folders.
 
 #### - Important Note -
 
-The Trip schema contains the entire task object. Tasks do **NOT** have their own schema, rather Tasks are a nested array of objects on the Trip object.
+The Trip schema contains the entire task object. Tasks do **NOT** have their own schema, rather Tasks are a nested array of objects on the Trip object. Tasks do, however, have their own folders for the form and view on the client side.
 
 The trip and user Controllers are used to interact/query the database.
 
@@ -82,13 +83,16 @@ The trip and user Controllers are used to interact/query the database.
 
 Authentication is achieved using OAuth. The configuration files are stored in a hidden folder `/server/.config` that is ignored by github. You will want to **make sure this folder contains the first . (dot), otherwise the API keys will be exposed!**
 
-The folder contains three files: 
+The folder contains three files: (Jak, please fill out this section)
 
 
 ### Middleware
 
 [Grant](https://github.com/simov/grant) is middleware module for Express that allows us to easily integrate OAuth into the app. For more information, [this article](https://scotch.io/tutorials/implement-oauth-into-your-express-koa-or-hapi-applications-using-grant)  can be of use.
 
+### Server Routes
+
+The `routes.js` file contains all the methods for routing traffic to/from the server.
 
 ## Deployment
 
