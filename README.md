@@ -52,7 +52,7 @@ Run:
 grunt server-dev
 ```
 
-Navigat to `http://localhost:3333` on your web browser.
+Navigate to `http://localhost:3333` on your web browser.
 
 ### Roadmap
 
