@@ -11,6 +11,13 @@ describe('Trips', function () {
     });
   });
 
+  describe('updateTrip()', function () {
+    it('should be a function', function () {
+      expect(Trips.updateTrip).to.exist;
+      expect(Trips.updateTrip).to.be.a('function');
+    });
+  });
+
   describe('getTrip()', function () {
     it('should be a function', function () {
       expect(Trips.getTrip).to.exist;
@@ -18,10 +25,10 @@ describe('Trips', function () {
     });
   });
 
-  describe('getAllTrips()', function () {
+  describe('addTask()', function () {
     it('shoud be a function', function () {
-      expect(Trips.getAllTrips).to.exist;
-      expect(Trips.getAllTrips).to.be.a('function');
+      expect(Trips.addTask).to.exist;
+      expect(Trips.addTask).to.be.a('function');
     });
   });
 
@@ -29,6 +36,13 @@ describe('Trips', function () {
     it('should be a function', function () {
       expect(Trips.updateTrip).to.exist;
       expect(Trips.updateTrip).to.be.a('function');
+    });
+  });
+
+  describe('searchTripsForUser()', function () {
+    it('should be a function', function () {
+      expect(Trips.searchTripsForUser).to.exist;
+      expect(Trips.searchTripsForUser).to.be.a('function');
     });
   });
 });
