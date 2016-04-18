@@ -1,17 +1,5 @@
-<div class="landing">
-  <a href="http://hackreactor.com/remote-beta">
-    <img class="hr-banner" src="http://i.imgur.com/x86kKmF.png" alt="Built at Hack Reactor Remote Beta">
-  </a>
-  
-  <div class="landing-body">
-    <div class="landing-content">
-      <h1>Canteen</h1>
-      <h3>Don’t get lost planing your next outdoor adventure</h3>
-
-      <br>
-
-      <!-- Dynamic environment link for signin -->
-      <a class="google-signin" ng-href="{{ googleUrl }}"></a>
-    </div>
-  </div>
+<div class="landing container">
+  <div ng-include="'../client/landingPage/home.html'" class="row home"></div>
+  <div ng-include="'../client/landingPage/about.html'" class="row about"></div>
+  <div ng-include="'../client/landingPage/customers.html'" class="row customers"></div>
 </div>
