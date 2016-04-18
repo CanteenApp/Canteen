@@ -10,7 +10,7 @@ If you want the nitty gritty about the Canteen App, you've come to the right pla
 	1. [Database](#database)
 	1. [Middleware](#middleware)
 	1. [Authentication](#authentication)
-	1. [Server Routes](#serverroutes)
+	1. [Server Routes](#server routes)
 1. [Deployment](#deployment)
 
 
