@@ -77,12 +77,13 @@ module.exports = function (app) {
   //TODO: Add update task route here
 
   /* Task Update Routes */
-  app.route('/api/updateStatus', checkUser)
-    .put(checkUser, function (req, res) {
-      tripsController.updateStatus(req.session.user.id, req.body, function (err, data) {
-        sendResponse(res, err, data, 200);
-      });
-    });
+  // app.route('/api/updateStatus', checkUser)
+  //   .put(checkUser, function (req, res) {
+  //     console.log('routes-session-data', req.session);
+  //     tripsController.updateStatus(req.session.user._id, req.body, function (err, data) {
+  //       sendResponse(res, err, data, 200);
+  //     });
+  //   });
 
   app.route('/api/assign/:tripId/:memberId', checkUser)
     .delete(checkUser, function (req, res) {

@@ -6,10 +6,9 @@ angular.module('canteen.taskView', [])
   function ($scope, trip) {
     $scope.updateStatus = function (task) {
       task.statusCode = task.statusCode ? 0 : 1;
-      trip.updateStatus(task, function (result) {
-        console.log(result);
+      trip.updateStatus($scope.trip, function (result) {
+        console.log('Status Updated!');
       });
-      
     };
   },
 ]);
