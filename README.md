@@ -1,6 +1,6 @@
 # Project Name
 
-> Canteen
+### [Canteen](http://canteenapp.herokuapp.com)
 
 ## Team
 
@@ -20,15 +20,17 @@
 
 ## Usage
 
-> Some usage instructions
+[Canteen](http://canteenapp.herokuapp.com) was developed to plan outdoor adventures with friends easily in one central place online.
 
 ## Requirements
 
-- Node 4.4.2
-- Mongo MongoDB
-- Express 4.13.4
-- Bower
-- Grunt
+ Make sure you have installed all of the following prerequisites on your development machine:
+
+* Node 4.4.2
+* MongoDB - [Download & Install MongoDB](http://www.mongodb.org/downloads), and make sure it's running on the default port (27017).
+* Express 4.13.4
+* Bower - [Bower Package Manager](http://bower.io/) is used to manage front-end packages. Install Node.js and npm first.
+* Grunt - [Grunt Task Runner](http://gruntjs.com/) is used to automate the development process. Make sure you've installed Node.js and npm first, then install grunt globally.
 
 ## Development
 
@@ -36,24 +38,18 @@
 
 From within the chosen directory:
 
-```sh
+```
 sudo npm install -g bower
 npm install
 bower install
 ```
+
 ### Launching App
 
 Run:
 
-```sh
-mongod
-npm start
 ```
-or:
-
-```sh
-mongod
-node index.js
+grunt server-dev
 ```
 
 ### Roadmap
@@ -64,3 +60,7 @@ View the project roadmap [here](https://github.com/CanteenApp/Canteen/issues)
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+
+## Getting Started With Canteen
+
+By now you probably have the application running but there's still a lot you want to understand about how this app is built and works "under the hood". We recommend you go to the additional [Documentation](DOCUMENTATION.md) page for more in-depth explanations and coding practices used to build this app.
