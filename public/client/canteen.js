@@ -28,19 +28,4 @@ angular.module('canteen', [
       templateUrl: 'client/trip/tripView.html',
       controller: 'tripCtrl',
     });
-    // .state('listView', {
-    //   url: '/list/{listName}',
-    //   templateUrl: 'client/list-view/listView.html',
-    //   controller: 'listView',
-    // })
-    // .state('taskForm', {
-    //   url: '/task-form',
-    //   templateUrl: 'client/task-form/taskForm.html',
-    //   controller: 'taskForm'
-    // });
-    // .state('tripForm.lists', {
-    //   url: "/lists",
-    //   templateUrl: "client/trip-form/tripFormLists.html",
-    //   controller: TBD
-    // });
 });

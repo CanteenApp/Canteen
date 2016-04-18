@@ -1,13 +1,6 @@
 var Trip = require('./tripModel');
 
 module.exports = {
-  // returns all trips
-  getAllTrips: function (next) {
-    Trip.find()
-      .exec(function (err, trips) {
-        next(err, trips);
-      });
-  },
 
   // search current trip table for
   // email address on members object
@@ -60,26 +53,4 @@ module.exports = {
     });
   },
 
-  // delete a trip
-  removeTask: function (req, next) {
-    Trip.findByIdAndUpdate(req.params.tripId, {
-      $pull: {
-        tasks: { _id: req.params.taskId },
-      },
-    })
-      .exec(function (err, trip) {
-        next(err, trip);
-      });
-  },
-
-  // update task statusCode
-  // updateStatus: function (tripId, task, next) {
-  //   Trip.update(
-  //     { id: tripId, 'tasks.taskName': task.taskName },
-  //     { $set: { 'tasks.$.statusCode': task.statusCode } }
-  //   )
-  //   .exec(function (err, result) {
-  //     next(err, result);
-  //   });
-  // },
 };
