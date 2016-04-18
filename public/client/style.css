@@ -49,6 +49,14 @@ input.ng-invalid.ng-dirty{
   border-color: #888;
 }
 
+.hr-banner {
+  position: relative;
+  float: right;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
 .logout {
   margin-top: 15px;
 }
