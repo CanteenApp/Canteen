@@ -6,7 +6,7 @@ angular.module('canteen.forms', [])
     function submitTrip(tripData, cb) {
       return $http({
         method: 'POST',
-        url: '/api/trips',
+        url: '/api/trip',
         data: tripData,
       })
       .then(function () {

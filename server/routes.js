@@ -29,28 +29,18 @@ var checkUser = function (req, res, next) {
 module.exports = function (app) {
 
   /* Trip Routes */
-  app.route('/api/trips')
-
-  // TODO: Remove or implement
-  // currently not in use
-    // .get(checkUser, function (req, res) {
-    //   tripsController.getAllTrips(function (err, data) {
-    //     sendResponse(res, err, data, 200);
-    //   });
-    // })
+  app.route('/api/trip/', checkUser)
+    .get(checkUser, function (req, res) {
+      tripsController.getTrip(req.session.user.trip, function (err, data) {
+        sendResponse(res, err, data, 200);
+      });
+    })
     .post(checkUser, function (req, res) {
       tripsController.createTrip(req, function (err, data) {
         req.session.user.trip = data._id;
         userController.addTrip(req.session.user.id, data._id, function (err, result) {
           sendResponse(res, err, data, 201);
         });
-      });
-    });
-
-  app.route('/api/trip/', checkUser)
-    .get(checkUser, function (req, res) {
-      tripsController.getTrip(req.session.user.trip, function (err, data) {
-        sendResponse(res, err, data, 200);
       });
     })
     .put(checkUser, function (req, res) {
@@ -70,24 +60,6 @@ module.exports = function (app) {
   app.route('/api/tasks/:tripId/:taskId', checkUser)
     .delete(checkUser, function (req, res) {
       tripsController.removeTask(req, function (err, data) {
-        sendResponse(res, err, data, 200);
-      });
-    });
-
-  //TODO: Add update task route here
-
-  /* Task Update Routes */
-  // app.route('/api/updateStatus', checkUser)
-  //   .put(checkUser, function (req, res) {
-  //     console.log('routes-session-data', req.session);
-  //     tripsController.updateStatus(req.session.user._id, req.body, function (err, data) {
-  //       sendResponse(res, err, data, 200);
-  //     });
-  //   });
-
-  app.route('/api/assign/:tripId/:memberId', checkUser)
-    .delete(checkUser, function (req, res) {
-      tripsController.unassignTask(req, function (err, data) {
         sendResponse(res, err, data, 200);
       });
     });
