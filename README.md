@@ -52,6 +52,8 @@ Run:
 grunt server-dev
 ```
 
+Navigat to `http://localhost:3333` on your web browser.
+
 ### Roadmap
 
 View the project roadmap [here](https://github.com/CanteenApp/Canteen/issues)
