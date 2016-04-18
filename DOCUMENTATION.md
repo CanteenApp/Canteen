@@ -81,14 +81,33 @@ The trip and user Controllers are used to interact/query the database.
 
 ### Authentication
 
-Authentication is achieved using OAuth. The configuration files are stored in a hidden folder `/server/.config` that is ignored by github. You will want to **make sure this folder contains the first . (dot), otherwise the API keys will be exposed!**
+Authentication is achieved using OAuth 2.0 with the Grunt plugin. The configuration files are stored in a hidden folder `/server/.config/` that is ignored by github. **Make absolutely sure that this folder is called `.config` (including the leading dot) and is located inside the server folder, otherwise the API keys will be exposed!**
 
-The folder contains three files: (Jak, please fill out this section)
+The `.config` folder should contain one json file: `.secrets.json` (including the leading dot), with the following structure:
 
+~~~json
+{
+  "google": {
+    "clientId": "[CLIENT_ID]",
+    "clientSecret": "[CLIENT_SECRET]"
+  },
+  "session": {
+    "secret": "[SESSION_SECRET]"
+  }
+}
+~~~
+
+When taking over this project, you will need to create the `/server/.config/.secrets.json` file with the above structure, and replace the bracketed items. You will find the keys by going to the Heroku app, clicking the Settings tab, and revealing the config variables.  
+
+- `[CLIENT_ID]` should be replace with the `GOOGLE_CID` config variable.
+- `[CLIENT_SECRET]` should be replaced with the `GOOGLE_CSECRET` config variable.
+- `[SESSION_SECRET]` should be replaced with the `SESSION_SECRET` config variable.
 
 ### Middleware
 
-[Grant](https://github.com/simov/grant) is middleware module for Express that allows us to easily integrate OAuth into the app. For more information, [this article](https://scotch.io/tutorials/implement-oauth-into-your-express-koa-or-hapi-applications-using-grant)  can be of use.
+[Grant](https://github.com/simov/grant) is a middleware module for Express that allows us to easily integrate OAuth into the app. For more information, [this article](https://scotch.io/tutorials/implement-oauth-into-your-express-koa-or-hapi-applications-using-grant) can be of use.
+
+We currently have Grant set up to use Express Session for authentication.
 
 ### Server Routes
 
