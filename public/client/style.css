@@ -27,11 +27,11 @@ Landing Page
 }
 
 .google-signin {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 10px 25px;
-  border: 2px solid rgb(44, 181, 81);
+  border: 2px solid	rgb(255, 128, 0);
   border-radius: 0;
-  color: rgb(44, 181, 81);
+  color: rgb(255, 128, 0);
   font-size: 18px;
   font-weight: 500;
   margin-top: 15px;
