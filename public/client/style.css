@@ -1,5 +1,6 @@
 body {
   padding-top: 50px;
+  margin-bottom: 50px;
 }
 
 p, h1, h2, h3, h4, div, a {
@@ -37,6 +38,22 @@ Landing Page
   margin-top: 15px;
 }
 
+.buttons {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 8px 15px;
+  border: 2px solid	rgb(255, 128, 0);
+  border-radius: 0;
+  color: rgb(255, 128, 0);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.buttons:hover {
+  background-color: rgb(44, 181, 81);
+  color: white;
+  border: 2px solid white;
+}
+
 .google-signin:hover {
   background-color: rgb(44, 181, 81);
   color: white;
@@ -63,7 +80,7 @@ Landing Page
 .customers {
   background-color: rgba(255, 255, 255, 0.9);
   padding-top: 140px;
-  padding-bottom: 140px;
+  padding-bottom: 90px;
   color: rgb(44, 181, 81);
 }
 
@@ -117,6 +134,9 @@ Navbar
 /*
 Trip Overview
 */
+.table-margin {
+  margin-top: 20px;
+}
 .panel-title {
   font-size: 20px;
 }
