@@ -80,10 +80,11 @@ The configuration can be found in the `server/db/config.js` file.
 Two schemas are used: `Trip` and `User`. Both are found in their respective folders.
 
 #### - Important Note -
-
 The Trip schema contains the entire task object. Tasks do **NOT** have their own schema, rather Tasks are a nested array of objects on the Trip object. Tasks do, however, have their own folders for the form and view on the client side.
 
 The trip and user Controllers are used to interact/query the database.
+
+When querying for trips, use the Mongo assigned `_id` property. But for users we use `id` which will be assigned a Google ID when a user is created. Any lookups and interaction with the user is done with `id` *NOT* `_id`.
 
 ### Authentication
 
