@@ -84,7 +84,7 @@ The Trip schema contains the entire task object. Tasks do **NOT** have their own
 
 The trip and user Controllers are used to interact/query the database.
 
-When querying for trips, use the Mongo assigned `_id` property. But for users we use `id` which will be assigned a Google ID when a user is created. Any lookups and interaction with the user is done with `id` *NOT* `_id`.
+When querying for trips, use the Mongo assigned `_id` property. But for users we use `id` which will be assigned a Google ID when a user is created. Any lookups and interaction with the user is done with `id` **NOT** `_id`.
 
 ### Authentication
 
