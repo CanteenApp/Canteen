@@ -4,6 +4,7 @@ If you want the nitty gritty about the Canteen App, you've come to the right pla
 
 ## Table of Contents
 1. [Setup](#setup)
+  1. [Environments](#environments)
 1. [Testing](#testing)
 1. [Front-End](#front-end)
 1. [Back-End](#back-end)
@@ -31,6 +32,11 @@ grunt start-dev
 ```
 
 The Grunt config code is stored in the [Gruntfile.js](Gruntfile.js) file. There is very little customization in this file and most of it can be understood using the official [Grunt](http://gruntjs.com) documentation and [this guide](https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt).
+
+
+### Environments
+
+There are two `index.html` files: one for the development environment named `dev_index.html` and one for production `index.html`. The `dev_index.html` contins the full, un-minified versions of scripts. The `index.html` file contains concated and minified files. Make sure to make changes to **both** files when making a change to an index page.
 
 ## Testing
 
@@ -74,10 +80,11 @@ The configuration can be found in the `server/db/config.js` file.
 Two schemas are used: `Trip` and `User`. Both are found in their respective folders.
 
 #### - Important Note -
-
 The Trip schema contains the entire task object. Tasks do **NOT** have their own schema, rather Tasks are a nested array of objects on the Trip object. Tasks do, however, have their own folders for the form and view on the client side.
 
 The trip and user Controllers are used to interact/query the database.
+
+When querying for trips, use the Mongo assigned `_id` property. But for users we use `id` which will be assigned a Google ID when a user is created. Any lookups and interaction with the user is done with `id` **NOT** `_id`.
 
 ### Authentication
 
