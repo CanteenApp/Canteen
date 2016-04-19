@@ -23,6 +23,8 @@ var grant = new Grant({
   },
 });
 
+var environment = process.env.NODE_ENV ? 'index.html' : 'dev_index.html';
+
 module.exports = function (app, express) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -31,5 +33,7 @@ module.exports = function (app, express) {
     secret: process.env.SESSION_SECRET || require('../.config/.secrets.json')['session']['secret']
   }));
   app.use(grant);
-  app.use(express.static(__dirname + '/../../public'));
+  app.use(express.static(__dirname + '/../../public', {
+    index: environment
+  }));
 };
