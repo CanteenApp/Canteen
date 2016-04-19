@@ -4,6 +4,7 @@ If you want the nitty gritty about the Canteen App, you've come to the right pla
 
 ## Table of Contents
 1. [Setup](#setup)
+  1. [Environments](#environments)
 1. [Testing](#testing)
 1. [Front-End](#front-end)
 1. [Back-End](#back-end)
@@ -31,6 +32,11 @@ grunt start-dev
 ```
 
 The Grunt config code is stored in the [Gruntfile.js](Gruntfile.js) file. There is very little customization in this file and most of it can be understood using the official [Grunt](http://gruntjs.com) documentation and [this guide](https://scotch.io/tutorials/a-simple-guide-to-getting-started-with-grunt).
+
+
+### Environments
+
+There are two `index.html` files: one for the development environment named `dev_index.html` and one for production `index.html`. The `dev_index.html` contins the full, un-minified versions of scripts. The `index.html` file contains concated and minified files. Make sure to make changes to *both* files when making a change to an index page.
 
 ## Testing
 
