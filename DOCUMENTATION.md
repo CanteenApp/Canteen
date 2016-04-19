@@ -36,7 +36,7 @@ The Grunt config code is stored in the [Gruntfile.js](Gruntfile.js) file. There 
 
 ### Environments
 
-There are two `index.html` files: one for the development environment named `dev_index.html` and one for production `index.html`. The `dev_index.html` contins the full, un-minified versions of scripts. The `index.html` file contains concated and minified files. Make sure to make changes to *both* files when making a change to an index page.
+There are two `index.html` files: one for the development environment named `dev_index.html` and one for production `index.html`. The `dev_index.html` contins the full, un-minified versions of scripts. The `index.html` file contains concated and minified files. Make sure to make changes to **both** files when making a change to an index page.
 
 ## Testing
 
